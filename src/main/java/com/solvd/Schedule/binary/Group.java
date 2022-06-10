@@ -1,6 +1,7 @@
 package com.solvd.Schedule.binary;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Group {
     private long id;
@@ -12,6 +13,10 @@ public class Group {
         this.id = id;
         this.groupLetter = groupLetter;
         this.students = students;
+    }
+
+    public Group(){
+
     }
 
     public long getId() {
@@ -36,5 +41,27 @@ public class Group {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Group)) return false;
+        Group group = (Group) o;
+        return id == group.id && groupLetter == group.groupLetter && Objects.equals(students, group.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, groupLetter, students);
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", groupLetter=" + groupLetter +
+                ", students=" + students +
+                '}';
     }
 }
