@@ -1,5 +1,7 @@
 package com.solvd.Schedule.binary;
 
+import java.util.Objects;
+
 public class Module {
     private long id;
     private Subject subject;
@@ -13,6 +15,10 @@ public class Module {
         this.classroom = classroom;
         this.shift = shift;
         this.group = group;
+    }
+
+    public Module(){
+
     }
 
     public long getId() {
@@ -54,4 +60,29 @@ public class Module {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Module)) return false;
+        Module module = (Module) o;
+        return id == module.id && Objects.equals(subject, module.subject) && Objects.equals(classroom, module.classroom) && Objects.equals(shift, module.shift) && Objects.equals(group, module.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, subject, classroom, shift, group);
+    }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "id=" + id +
+                ", subject=" + subject +
+                ", classroom=" + classroom +
+                ", shift=" + shift +
+                ", group=" + group +
+                '}';
+    }
+
 }
