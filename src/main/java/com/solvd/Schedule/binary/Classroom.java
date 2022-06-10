@@ -1,5 +1,7 @@
 package com.solvd.Schedule.binary;
 
+import java.util.Objects;
+
 public class Classroom {
     private long id;
     private int classroomNumber;
@@ -9,6 +11,10 @@ public class Classroom {
         this.id = id;
         this.classroomNumber = classroomNumber;
         this.available = available;
+    }
+
+    public Classroom(){
+
     }
 
     public long getId() {
@@ -33,5 +39,27 @@ public class Classroom {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Classroom)) return false;
+        Classroom classroom = (Classroom) o;
+        return id == classroom.id && classroomNumber == classroom.classroomNumber && available == classroom.available;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, classroomNumber, available);
+    }
+
+    @Override
+    public String toString() {
+        return "Classroom{" +
+                "id=" + id +
+                ", classroomNumber=" + classroomNumber +
+                ", available=" + available +
+                '}';
     }
 }

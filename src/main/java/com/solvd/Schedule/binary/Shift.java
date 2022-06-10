@@ -1,6 +1,7 @@
 package com.solvd.Schedule.binary;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Shift {
 
@@ -16,6 +17,10 @@ public class Shift {
         this.days = days;
         this.modules = modules;
         this.calendar = calendar;
+    }
+
+    public Shift(){
+
     }
 
     public long getId() {
@@ -56,5 +61,29 @@ public class Shift {
 
     public void setCalendar(Calendar calendar) {
         this.calendar = calendar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shift)) return false;
+        Shift shift = (Shift) o;
+        return id == shift.id && Objects.equals(name, shift.name) && Objects.equals(days, shift.days) && Objects.equals(modules, shift.modules) && Objects.equals(calendar, shift.calendar);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, days, modules, calendar);
+    }
+
+    @Override
+    public String toString() {
+        return "Shift{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", days=" + days +
+                ", modules=" + modules +
+                ", calendar=" + calendar +
+                '}';
     }
 }
