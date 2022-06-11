@@ -1,0 +1,19 @@
+package com.solvd.Schedule.services;
+
+import com.solvd.Schedule.binary.Professor;
+
+import java.util.List;
+
+public interface ProfessorService {
+
+    Professor getProfessor(Long id);
+
+    void delete(Long id);
+
+    void update(Long id, Professor u);
+
+    void create(Professor u);
+
+    List<Professor> getProfessors();
+
+}

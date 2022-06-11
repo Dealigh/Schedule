@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class Calendar {
-    private long id;
+    private Long id;
     private List<Shift> shifts;
 
-    public Calendar(long id, List<Shift> shifts) {
+    public Calendar(Long id, List<Shift> shifts) {
         this.id = id;
         this.shifts = shifts;
     }
@@ -16,11 +16,11 @@ public class Calendar {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -5,13 +5,13 @@ import java.util.Objects;
 
 public class Shift {
 
-    private long id;
+    private Long id;
     private String name;        // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
     private List<Days> days;
     private List<Module> modules;
     private Calendar calendar;
 
-    public Shift(long id, String name, List<Days> days, List<Module> modules, Calendar calendar) {
+    public Shift(Long id, String name, List<Days> days, List<Module> modules, Calendar calendar) {
         this.id = id;
         this.name = name;
         this.days = days;
@@ -23,11 +23,11 @@ public class Shift {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

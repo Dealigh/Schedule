@@ -5,26 +5,24 @@ import java.util.Objects;
 
 public class Days {
 
-    private long id;
+    private Long id;
     private String name;        // tambien con enums creo
     private Shift shift;
     private Subject[] subjects = new Subject[4];        // tal vez cambiar arreglos por listas.
 
-    public Days(long id, String name, Shift shift) {
+    public Days(Long id, String name, Shift shift) {
         this.id = id;
         this.name = name;
         this.shift = shift;
     }
-
     public Days(){
-
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,7 +55,7 @@ public class Days {
         if (this == o) return true;
         if (!(o instanceof Days)) return false;
         Days days = (Days) o;
-        return id == days.id && Objects.equals(name, days.name) && Objects.equals(shift, days.shift) && Arrays.equals(subjects, days.subjects);
+        return Objects.equals(id, days.id) && Objects.equals(name, days.name) && Objects.equals(shift, days.shift) && Arrays.equals(subjects, days.subjects);
     }
 
     @Override
