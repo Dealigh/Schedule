@@ -1,4 +1,6 @@
 package com.solvd.Schedule.dao;
 
-public interface ISubjectDAO extends ManagerDAO{
+import com.solvd.Schedule.binary.Subject;
+
+public interface ISubjectDAO extends ManagerDAO<Subject, Long> {
 }

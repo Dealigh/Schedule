@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class Group {
-    private long id;
+    private Long id;
     private char groupLetter;
     private List<Student> students;
     private final static int limitAmount = 10;
 
-    public Group(long id, char groupLetter, List<Student> students) {
+    public Group(Long id, char groupLetter, List<Student> students) {
         this.id = id;
         this.groupLetter = groupLetter;
         this.students = students;
@@ -19,11 +19,11 @@ public class Group {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

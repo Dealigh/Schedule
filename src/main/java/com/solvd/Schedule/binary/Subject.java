@@ -3,11 +3,11 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Subject {
-    private long id;
-    private long name;
+    private Long id;
+    private Long name;
     private Professor professor;
 
-    public Subject(long id, long name, Professor professor) {
+    public Subject(Long id, Long name, Professor professor) {
         this.id = id;
         this.name = name;
         this.professor = professor;
@@ -17,19 +17,19 @@ public class Subject {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getName() {
+    public Long getName() {
         return name;
     }
 
-    public void setName(long name) {
+    public void setName(Long name) {
         this.name = name;
     }
 

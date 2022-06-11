@@ -1,4 +1,6 @@
 package com.solvd.Schedule.dao;
 
-public interface IClassroomDAO extends ManagerDAO{
+import com.solvd.Schedule.binary.Classroom;
+
+public interface IClassroomDAO extends ManagerDAO<Classroom, Long> {
 }
