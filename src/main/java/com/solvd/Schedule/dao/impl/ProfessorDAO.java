@@ -37,13 +37,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
         LOG.error("Not saved ", e);
     }finally {
         returnConnect(conn);
-        if(pt != null){
-            try {
-                pt.close();
-            }catch (SQLException e){
-                LOG.error("Prepared Statement not close", e);
-            }
-        }
+        closeResources(pt);
     }
     }
 
@@ -65,11 +59,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             throw new ExceptionDAO("Error in SQL");
         }finally {
             returnConnect(conn);
-            try{
-                ps.close();
-            }catch (SQLException e){
-                LOG.error("Not updated", e);
-            }
+            closeResources(ps);
         }
     }
 
@@ -88,14 +78,9 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             throw new ExceptionDAO("Error in SQL");
         }finally {
             returnConnect(conn);
-            try{
-                ps.close();
-            }catch (SQLException e){
-                LOG.error("Not closed", e);
-            }
+            closeResources(ps);
         }
     }
-
 
     private Professor convert(ResultSet rs) throws SQLException {
         String firstName = rs.getString("firstName");
@@ -124,15 +109,11 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             throw new ExceptionDAO("Can't reach the Book");
         } finally {
             returnConnect(conn);
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                LOG.error("Error closing all", e);
-            }
+            closeResources(ps, rs);
         }
         return prof;
     }
+
     @Override
     public List<Professor> getAll() {
         PreparedStatement ps = null;
@@ -150,12 +131,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             throw new ExceptionDAO("Can't reach the Worker");
         } finally {
             returnConnect(conn);
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                LOG.error("Error closing all", e);
-            }
+            closeResources(ps, rs);
         }
         return listProfessors;
     }
