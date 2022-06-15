@@ -5,18 +5,14 @@ import java.util.Objects;
 
 public class Group {
     private Long id;
-    private char groupLetter;
-    private List<Student> students;
     private final static int limitAmount = 10;
+    private int shiftId;
 
-    public Group(Long id, char groupLetter, List<Student> students) {
-        this.id = id;
-        this.groupLetter = groupLetter;
-        this.students = students;
+    public Group( int shiftId) {
+        this.shiftId = shiftId;
     }
 
     public Group(){
-
     }
 
     public Long getId() {
@@ -27,20 +23,12 @@ public class Group {
         this.id = id;
     }
 
-    public char getGroupLetter() {
-        return groupLetter;
+    public int getShiftId() {
+        return shiftId;
     }
 
-    public void setGroupLetter(char groupLetter) {
-        this.groupLetter = groupLetter;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setShiftId(int shiftId) {
+        this.shiftId = shiftId;
     }
 
     @Override
@@ -48,20 +36,19 @@ public class Group {
         if (this == o) return true;
         if (!(o instanceof Group)) return false;
         Group group = (Group) o;
-        return id == group.id && groupLetter == group.groupLetter && Objects.equals(students, group.students);
+        return shiftId == group.shiftId && Objects.equals(id, group.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, groupLetter, students);
+        return Objects.hash(id, shiftId);
     }
 
     @Override
     public String toString() {
         return "Group{" +
                 "id=" + id +
-                ", groupLetter=" + groupLetter +
-                ", students=" + students +
+                ", shiftId=" + shiftId +
                 '}';
     }
 }

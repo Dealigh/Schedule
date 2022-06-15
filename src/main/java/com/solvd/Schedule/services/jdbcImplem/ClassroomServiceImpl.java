@@ -1,6 +1,8 @@
 package com.solvd.Schedule.services.jdbcImplem;
 
 import com.solvd.Schedule.binary.Classroom;
+import com.solvd.Schedule.dao.IClassroomDAO;
+import com.solvd.Schedule.dao.impl.ClassroomDAO;
 import com.solvd.Schedule.services.ClassroomService;
 
 import java.util.List;
@@ -8,26 +10,13 @@ import java.util.List;
 public class ClassroomServiceImpl implements ClassroomService {
     @Override
     public Classroom getClassroom(Long id) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long id) {
-
-    }
-
-    @Override
-    public void update(Long id, Classroom u) {
-
-    }
-
-    @Override
-    public void create(Classroom u) {
-
-    }
+        IClassroomDAO classroomDAO = new ClassroomDAO();
+        return classroomDAO.getEntity(id);
+        }
 
     @Override
     public List<Classroom> getAllClassrooms() {
-        return null;
+    IClassroomDAO classList = new ClassroomDAO();
+    return classList.getAll();
     }
 }
