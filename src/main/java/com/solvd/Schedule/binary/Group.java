@@ -4,35 +4,27 @@ import java.util.List;
 import java.util.Objects;
 
 public class Group {
-    private Long id;
-    private char groupLetter;
+    private long id;
     private List<Student> students;
-    private final static int limitAmount = 10;
+    private int limitAmount;
+    private Shift shift;
 
-    public Group(Long id, char groupLetter, List<Student> students) {
+    public Group(long id, char groupLetter, List<Student> students, Shift shift) {
         this.id = id;
-        this.groupLetter = groupLetter;
         this.students = students;
+        this.shift = shift;
     }
 
     public Group(){
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
-    }
-
-    public char getGroupLetter() {
-        return groupLetter;
-    }
-
-    public void setGroupLetter(char groupLetter) {
-        this.groupLetter = groupLetter;
     }
 
     public List<Student> getStudents() {
@@ -43,25 +35,41 @@ public class Group {
         this.students = students;
     }
 
+    public int getLimitAmount() {
+        return limitAmount;
+    }
+
+    public void setLimitAmount(int limitAmount) {
+        this.limitAmount = limitAmount;
+    }
+
+    public Shift getShift() {
+        return shift;
+    }
+
+    public void setShift(Shift shift) {
+        this.shift = shift;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Group)) return false;
         Group group = (Group) o;
-        return id == group.id && groupLetter == group.groupLetter && Objects.equals(students, group.students);
+        return id == group.id && Objects.equals(students, group.students);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, groupLetter, students);
+        return Objects.hash(id, students);
     }
 
     @Override
     public String toString() {
         return "Group{" +
                 "id=" + id +
-                ", groupLetter=" + groupLetter +
                 ", students=" + students +
+                ", shift=" + shift +
                 '}';
     }
 }

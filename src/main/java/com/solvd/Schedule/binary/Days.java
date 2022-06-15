@@ -5,12 +5,12 @@ import java.util.Objects;
 
 public class Days {
 
-    private Long id;
+    private long id;
     private String name;        // tambien con enums creo
     private Shift shift;
     private Subject[] subjects = new Subject[4];        // tal vez cambiar arreglos por listas.
 
-    public Days(Long id, String name, Shift shift) {
+    public Days(long id, String name, Shift shift) {
         this.id = id;
         this.name = name;
         this.shift = shift;
@@ -18,11 +18,11 @@ public class Days {
     public Days(){
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

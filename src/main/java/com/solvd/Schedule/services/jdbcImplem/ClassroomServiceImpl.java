@@ -7,17 +7,17 @@ import java.util.List;
 
 public class ClassroomServiceImpl implements ClassroomService {
     @Override
-    public Classroom getClassroom(Long id) {
+    public Classroom getClassroom(long id) {
         return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
 
     }
 
     @Override
-    public void update(Long id, Classroom u) {
+    public void update(long id, Classroom u) {
 
     }
 

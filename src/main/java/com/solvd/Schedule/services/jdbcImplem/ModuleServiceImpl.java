@@ -7,17 +7,17 @@ import java.util.List;
 
 public class ModuleServiceImpl implements ModuleService {
     @Override
-    public Module getModule(Long id) {
+    public Module getModule(long id) {
         return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
 
     }
 
     @Override
-    public void update(Long id, Module u) {
+    public void update(long id, Module u) {
 
     }
 

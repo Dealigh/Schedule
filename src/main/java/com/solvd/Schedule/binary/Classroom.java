@@ -3,11 +3,11 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Classroom {
-    private Long id;
+    private long id;
     private int classroomNumber;
     private boolean available;
 
-    public Classroom(Long id, int classroomNumber, boolean available) {
+    public Classroom(long id, int classroomNumber, boolean available) {
         this.id = id;
         this.classroomNumber = classroomNumber;
         this.available = available;
@@ -17,11 +17,11 @@ public class Classroom {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

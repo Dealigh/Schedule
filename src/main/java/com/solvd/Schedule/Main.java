@@ -1,8 +1,8 @@
 package com.solvd.Schedule;
 
+import com.solvd.Schedule.binary.Classroom;
 import com.solvd.Schedule.binary.Professor;
-import com.solvd.Schedule.dao.IProfessorDAO;
-import com.solvd.Schedule.dao.impl.ProfessorDAO;
+import com.solvd.Schedule.binary.Subject;
 import com.solvd.Schedule.services.ProfessorService;
 import com.solvd.Schedule.services.jdbcImplem.ProfessorServiceImpl;
 import org.apache.logging.log4j.LogManager;
@@ -15,10 +15,10 @@ public class Main {
     public static void main(String[] args) {
 
         //Probando profesores
-        ProfessorService professor = new ProfessorServiceImpl();
-        LOG.info(professor.getProfessor(2L).getFirstName());
-        LOG.info(professor.getProfessor(2L).getLastName());
-        LOG.info(professor.getProfessor(2L).getId());
+        ProfessorService professorService = new ProfessorServiceImpl();
+        LOG.info(professorService.getProfessor(2L).getFirstName());
+        LOG.info(professorService.getProfessor(2L).getLastName());
+        LOG.info(professorService.getProfessor(2L).getId());
 
         //vamo a crear un profe
         //Professor Dani = new Professor("Daniel", "Messi");
@@ -31,9 +31,9 @@ public class Main {
         Professor updateProfessor = new Professor();
         updateProfessor.setFirstName("James");
         updateProfessor.setLastName("Harden");
-        professor.update(1L, updateProfessor);
+        professorService.update(1L, updateProfessor);
 
-        List<Professor> thisList = professor.getProfessors();
+        List<Professor> thisList = professorService.getProfessors();
         for (Professor u : thisList) {
             LOG.info(u.toString());
         }

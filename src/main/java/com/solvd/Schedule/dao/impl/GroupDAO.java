@@ -21,7 +21,7 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
 
 
     @Override
-    public Group getEntity(Long id) throws ExceptionDAO {
+    public Group getEntity(long id) throws ExceptionDAO {
         return null;
     }
 
@@ -31,12 +31,12 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
     }
 
     @Override
-    public void update(Long id, Group entity) throws ExceptionDAO {
+    public void update(long id, Group entity) throws ExceptionDAO {
 
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
 
     }
 

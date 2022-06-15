@@ -3,13 +3,13 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Module {
-    private Long id;
+    private long id;
     private Subject subject;
     private Classroom classroom;
     private Shift shift;
     private Group group;
 
-    public Module(Long id, Subject subject, Classroom classroom, Shift shift, Group group) {
+    public Module(long id, Subject subject, Classroom classroom, Shift shift, Group group) {
         this.id = id;
         this.subject = subject;
         this.classroom = classroom;
@@ -21,11 +21,22 @@ public class Module {
 
     }
 
-    public Long getId() {
+    //La idea de este constructor es que el usuario pueda elegir una materia y un grupo y con esto crear un module para desp agregarlo al shift que quiera (Shifts.addModule);
+    public Module (Subject subject, Group group) {
+        // ID = (Buscar en la DB el idMayor => this.id = idMayor + 1
+        this.subject = subject;
+        this.group = group;
+        this.shift = group.getShift();
+        // classroom == (no se todavia donde buscar las aulas disponibles)
+        // Creo que el aula tiene que asignarse en shift.addModule
+
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

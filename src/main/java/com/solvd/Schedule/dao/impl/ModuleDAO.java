@@ -8,7 +8,7 @@ import java.util.List;
 public class ModuleDAO extends AbstractConnection implements IModuleDAO {
 
     @Override
-    public Module getEntity(Long id) throws ExceptionDAO {
+    public Module getEntity(long id) throws ExceptionDAO {
         return null;
     }
 
@@ -18,12 +18,12 @@ public class ModuleDAO extends AbstractConnection implements IModuleDAO {
     }
 
     @Override
-    public void update(Long id, Module entity) throws ExceptionDAO {
+    public void update(long id, Module entity) throws ExceptionDAO {
 
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
 
     }
 

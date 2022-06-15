@@ -3,12 +3,12 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class StudentSubject {
-    private Long id;
+    private long id;
     private Student student;
     private Subject subject;
     private int grade;
 
-    public StudentSubject(Long id, Student student, Subject subject, int grade) {
+    public StudentSubject(long id, Student student, Subject subject, int grade) {
         this.id = id;
         this.student = student;
         this.subject = subject;

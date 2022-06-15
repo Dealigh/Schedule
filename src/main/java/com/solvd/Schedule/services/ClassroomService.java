@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ClassroomService {
 
-    Classroom getClassroom (Long id);
+    Classroom getClassroom (long id);
 
-    void delete(Long id);
+    void delete(long id);
 
-    void update(Long id, Classroom u);
+    void update(long id, Classroom u);
 
     void create(Classroom u);
 
