@@ -1,6 +1,5 @@
 package com.solvd.Schedule.dao.impl;
 
-import com.solvd.Schedule.binary.Days;
 import com.solvd.Schedule.binary.Group;
 import com.solvd.Schedule.dao.IGroupDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;
@@ -16,33 +15,32 @@ import java.util.List;
 
 public class GroupDAO extends AbstractConnection implements IGroupDAO {
 
-    private final String GET_ONE = "SELECT idGroup, shiftsId from Group WHERE idGroup=?";
-    private final String GET_ALL = "SELECT idGroup, shiftsId FROM Group";
+    private final String GET_ONE = "SELECT idGroup, shiftsId  from groups WHERE idGroup=?";
+    private final String GET_ALL = "SELECT idGroup, limitAmount, shiftsId FROM groups";
 
     private static final Logger LOG = LogManager.getLogger(GroupDAO.class);
 
     @Override
     public void saveEntity(Group entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
-
     }
 
     @Override
     public void update(Long id, Group entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
-
     }
 
     @Override
     public void delete(Long id) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
-
     }
 
     private Group convert(ResultSet rs) throws SQLException {
-        int shiftsId = rs.getInt("shiftsId");
-        Group group = new Group(shiftsId);
-        group.setId(rs.getLong("id"));
+        //int shiftsId = rs.getInt("shiftsId");
+        //int limitAmount = rs.getInt("limitAmount");
+        Group group = new Group();
+        group.setShiftId(rs.getInt("shiftsId"));
+        group.setId(rs.getLong("idGroup"));
         return group;
     }
 

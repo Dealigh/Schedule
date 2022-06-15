@@ -1,5 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
+import com.solvd.Schedule.binary.Module;
 import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.dao.IProfessorDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;

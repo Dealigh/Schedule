@@ -8,12 +8,6 @@ public interface GroupService {
 
     Group getGroup (Long id);
 
-    void delete(Long id);
-
-    void update(Long id, Group u);
-
-    void create(Group u);
-
-    List<Group> getAllGroups();
+       List<Group> getAllGroups();
 
 }

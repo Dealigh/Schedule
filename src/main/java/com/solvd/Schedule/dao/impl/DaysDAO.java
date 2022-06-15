@@ -61,9 +61,9 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
     private Days convert(ResultSet rs) throws SQLException {
         String name = rs.getString("name");
         int hours = rs.getInt("hours");
-        int shiftId = rs.getInt("shiftId");
-        Days day = new Days(name, hours, shiftId);
-        day.setId(rs.getLong("id"));
+        int shiftsId = rs.getInt("shiftsId");
+        Days day = new Days(name, hours, shiftsId);
+        day.setId(rs.getLong("idDays"));
         return day;
     }
 

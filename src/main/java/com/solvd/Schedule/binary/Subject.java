@@ -4,17 +4,16 @@ import java.util.Objects;
 
 public class Subject {
     private Long id;
-    private Long name;
+    private String name;
     private Professor professor;
 
-    public Subject(Long id, Long name, Professor professor) {
+    public Subject(Long id, String name, Professor professor) {
         this.id = id;
         this.name = name;
         this.professor = professor;
     }
 
     public Subject(){
-
     }
 
     public Long getId() {
@@ -25,11 +24,11 @@ public class Subject {
         this.id = id;
     }
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
 
