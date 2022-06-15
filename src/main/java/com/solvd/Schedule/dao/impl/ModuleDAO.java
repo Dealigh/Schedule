@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ModuleDAO extends AbstractConnection implements IModuleDAO {
 
-    private final String GET_ONE = "SELECT subjectsId, classroomsId, shiftsId from modules WHERE idModule=?";
+    private final String GET_ONE = "SELECT * from modules WHERE idModule=?";
     private final String GET_ALL = "SELECT subjectsId, classroomsId, shiftsId FROM modules";
 
     private static final Logger LOG = LogManager.getLogger(ModuleDAO.class);

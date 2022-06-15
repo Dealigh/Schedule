@@ -28,8 +28,8 @@ public class Main {
 //        System.out.println(stud.getAll());
 
         Student theStud= new Student();
-        theStud.setFirstName("Solange");
-        stud.update(28L, theStud);
+        theStud = stud.getEntity(1);
+        stud.update(28, theStud);
 
         //testing groups
 //        GroupService groups = new GroupServiceImpl();
