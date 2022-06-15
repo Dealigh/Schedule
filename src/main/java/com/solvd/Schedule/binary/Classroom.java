@@ -5,16 +5,16 @@ import java.util.Objects;
 public class Classroom {
     private Long id;
     private int classroomNumber;
+    private int size;
     private boolean available;
 
-    public Classroom(Long id, int classroomNumber, boolean available) {
-        this.id = id;
+    public Classroom(int classroomNumber, int size, boolean available) {
         this.classroomNumber = classroomNumber;
+        this.size = size;
         this.available = available;
     }
 
     public Classroom(){
-
     }
 
     public Long getId() {
@@ -33,6 +33,14 @@ public class Classroom {
         this.classroomNumber = classroomNumber;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -46,12 +54,12 @@ public class Classroom {
         if (this == o) return true;
         if (!(o instanceof Classroom)) return false;
         Classroom classroom = (Classroom) o;
-        return classroomNumber == classroom.classroomNumber && available == classroom.available && Objects.equals(id, classroom.id);
+        return classroomNumber == classroom.classroomNumber && size == classroom.size && available == classroom.available && Objects.equals(id, classroom.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, classroomNumber, available);
+        return Objects.hash(id, classroomNumber, size, available);
     }
 
     @Override
@@ -59,6 +67,7 @@ public class Classroom {
         return "Classroom{" +
                 "id=" + id +
                 ", classroomNumber=" + classroomNumber +
+                ", size=" + size +
                 ", available=" + available +
                 '}';
     }

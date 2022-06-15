@@ -106,7 +106,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             }
         } catch (SQLException e) {
             LOG.error("Error in SQL", e);
-            throw new ExceptionDAO("Can't reach the Book");
+            throw new ExceptionDAO("Can't reach the Professor");
         } finally {
             returnConnect(conn);
             closeResources(ps, rs);
@@ -128,7 +128,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             }
         } catch (SQLException e) {
             LOG.error("Error in SQL", e);
-            throw new ExceptionDAO("Can't reach the Worker");
+            throw new ExceptionDAO("Can't reach the Professors");
         } finally {
             returnConnect(conn);
             closeResources(ps, rs);
