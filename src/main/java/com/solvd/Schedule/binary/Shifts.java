@@ -1,19 +1,19 @@
 package com.solvd.Schedule.binary;
 
-import java.util.List;
 import java.util.Objects;
 
-public class Shift {
+public class Shifts {
     private Long id;
-    private String name;        // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
+    private String name;
+
+    // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
 
 
-    public Shift(Long id, String name) {
-        this.id = id;
+    public Shifts(String name) {
         this.name = name;
     }
 
-    public Shift(){
+    public Shifts(){
     }
 
     public Long getId() {
@@ -36,9 +36,9 @@ public class Shift {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Shift)) return false;
-        Shift shift = (Shift) o;
-        return id == shift.id && Objects.equals(name, shift.name);
+        if (!(o instanceof Shifts)) return false;
+        Shifts shifts = (Shifts) o;
+        return id == shifts.id && Objects.equals(name, shifts.name);
     }
 
     @Override

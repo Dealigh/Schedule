@@ -1,14 +1,14 @@
 package com.solvd.Schedule.binary;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Group {
     private Long id;
-    private final static int limitAmount = 10;
+    private int limitAmount;
     private int shiftId;
 
-    public Group( int shiftId) {
+    public Group( int shiftId, int limitAmount) {
+        this.limitAmount=limitAmount;
         this.shiftId = shiftId;
     }
 
@@ -21,6 +21,14 @@ public class Group {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getLimitAmount() {
+        return limitAmount;
+    }
+
+    public void setLimitAmount(int limitAmount) {
+        this.limitAmount = limitAmount;
     }
 
     public int getShiftId() {
@@ -36,18 +44,19 @@ public class Group {
         if (this == o) return true;
         if (!(o instanceof Group)) return false;
         Group group = (Group) o;
-        return shiftId == group.shiftId && Objects.equals(id, group.id);
+        return limitAmount == group.limitAmount && shiftId == group.shiftId && Objects.equals(id, group.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, shiftId);
+        return Objects.hash(id, limitAmount, shiftId);
     }
 
     @Override
     public String toString() {
         return "Group{" +
                 "id=" + id +
+                ", limitAmount=" + limitAmount +
                 ", shiftId=" + shiftId +
                 '}';
     }
