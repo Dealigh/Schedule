@@ -14,7 +14,6 @@ public class Subject {
     }
 
     public Subject(){
-
     }
 
     public long getId() {

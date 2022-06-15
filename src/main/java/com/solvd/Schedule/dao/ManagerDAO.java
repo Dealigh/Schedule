@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface ManagerDAO <T> {
 
-    T getEntity(long id) throws ExceptionDAO;
 
     void saveEntity(T entity) throws ExceptionDAO;
 
@@ -14,6 +13,9 @@ public interface ManagerDAO <T> {
 
     void delete(long id) throws ExceptionDAO;
 
+    T getEntity(long id) throws ExceptionDAO;
+
     List<T> getAll() throws ExceptionDAO;
+
 
 }

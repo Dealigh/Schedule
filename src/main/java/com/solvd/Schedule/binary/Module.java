@@ -6,30 +6,15 @@ public class Module {
     private long id;
     private Subject subject;
     private Classroom classroom;
-    private Shift shift;
-    private Group group;
+    private Shifts shifts;
 
-    public Module(long id, Subject subject, Classroom classroom, Shift shift, Group group) {
-        this.id = id;
+    public Module(Subject subject, Classroom classroom, Shifts shifts) {
         this.subject = subject;
         this.classroom = classroom;
-        this.shift = shift;
-        this.group = group;
+        this.shifts = shifts;
     }
 
     public Module(){
-
-    }
-
-    //La idea de este constructor es que el usuario pueda elegir una materia y un grupo y con esto crear un module para desp agregarlo al shift que quiera (Shifts.addModule);
-    public Module (Subject subject, Group group) {
-        // ID = (Buscar en la DB el idMayor => this.id = idMayor + 1
-        this.subject = subject;
-        this.group = group;
-        this.shift = group.getShift();
-        // classroom == (no se todavia donde buscar las aulas disponibles)
-        // Creo que el aula tiene que asignarse en shift.addModule
-
     }
 
     public long getId() {
@@ -56,20 +41,12 @@ public class Module {
         this.classroom = classroom;
     }
 
-    public Shift getShift() {
-        return shift;
+    public Shifts getShift() {
+        return shifts;
     }
 
-    public void setShift(Shift shift) {
-        this.shift = shift;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setShift(Shifts shifts) {
+        this.shifts = shifts;
     }
 
     @Override
@@ -77,12 +54,12 @@ public class Module {
         if (this == o) return true;
         if (!(o instanceof Module)) return false;
         Module module = (Module) o;
-        return id == module.id && Objects.equals(subject, module.subject) && Objects.equals(classroom, module.classroom) && Objects.equals(shift, module.shift) && Objects.equals(group, module.group);
+        return Objects.equals(id, module.id) && Objects.equals(subject, module.subject) && Objects.equals(classroom, module.classroom) && Objects.equals(shifts, module.shifts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, subject, classroom, shift, group);
+        return Objects.hash(id, subject, classroom, shifts);
     }
 
     @Override
@@ -91,9 +68,7 @@ public class Module {
                 "id=" + id +
                 ", subject=" + subject +
                 ", classroom=" + classroom +
-                ", shift=" + shift +
-                ", group=" + group +
+                ", shift=" + shifts +
                 '}';
     }
-
 }

@@ -1,20 +1,21 @@
 package com.solvd.Schedule.binary;
 
-import java.util.Arrays;
 import java.util.Objects;
 
-public class Days {
 
+public class Days {
     private long id;
     private String name;        // tambien con enums creo
-    private Shift shift;
-    private Subject[] subjects = new Subject[4];        // tal vez cambiar arreglos por listas.
+    private int hours;
+    private int shiftsId;
+    //private Subject[] subjects = new Subject[4];        // tal vez cambiar arreglos por listas.
 
-    public Days(long id, String name, Shift shift) {
-        this.id = id;
+    public Days(String name, int hours, int shiftsId) {
         this.name = name;
-        this.shift = shift;
+        this.hours = hours;
+        this.shiftsId = shiftsId;
     }
+
     public Days(){
     }
 
@@ -34,20 +35,20 @@ public class Days {
         this.name = name;
     }
 
-    public Shift getShift() {
-        return shift;
+    public int getHours() {
+        return hours;
     }
 
-    public void setShift(Shift shift) {
-        this.shift = shift;
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 
-    public Subject[] getSubjects() {
-        return subjects;
+    public int getShiftsId() {
+        return shiftsId;
     }
 
-    public void setSubjects(Subject[] subjects) {
-        this.subjects = subjects;
+    public void setShiftsId(int shiftsId) {
+        this.shiftsId = shiftsId;
     }
 
     @Override
@@ -55,14 +56,12 @@ public class Days {
         if (this == o) return true;
         if (!(o instanceof Days)) return false;
         Days days = (Days) o;
-        return Objects.equals(id, days.id) && Objects.equals(name, days.name) && Objects.equals(shift, days.shift) && Arrays.equals(subjects, days.subjects);
+        return hours == days.hours && shiftsId == days.shiftsId && Objects.equals(id, days.id) && Objects.equals(name, days.name);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, name, shift);
-        result = 31 * result + Arrays.hashCode(subjects);
-        return result;
+        return Objects.hash(id, name, hours, shiftsId);
     }
 
     @Override
@@ -70,8 +69,8 @@ public class Days {
         return "Days{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", shift=" + shift +
-                ", subjects=" + Arrays.toString(subjects) +
+                ", hours=" + hours +
+                ", shiftsId=" + shiftsId +
                 '}';
     }
 }

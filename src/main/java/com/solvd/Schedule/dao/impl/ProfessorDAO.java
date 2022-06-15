@@ -1,5 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
+import com.solvd.Schedule.binary.Module;
 import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.dao.IProfessorDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;
@@ -63,7 +64,6 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
         }
     }
 
-    @Override
     public void delete(long id) throws ExceptionDAO{
         PreparedStatement ps= null;
         Connection conn= getConnect();
@@ -90,7 +90,6 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
         return professor;
     }
 
-    @Override
     public Professor getEntity(long id) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -107,7 +106,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             }
         } catch (SQLException e) {
             LOG.error("Error in SQL", e);
-            throw new ExceptionDAO("Can't reach the Book");
+            throw new ExceptionDAO("Can't reach the Professor");
         } finally {
             returnConnect(conn);
             closeResources(ps, rs);
@@ -129,7 +128,7 @@ public class ProfessorDAO extends AbstractConnection implements IProfessorDAO {
             }
         } catch (SQLException e) {
             LOG.error("Error in SQL", e);
-            throw new ExceptionDAO("Can't reach the Worker");
+            throw new ExceptionDAO("Can't reach the Professors");
         } finally {
             returnConnect(conn);
             closeResources(ps, rs);
