@@ -14,5 +14,9 @@ public interface StudendService {
 
     void create(Student u);
 
-    List<Student> getAllStudents();
+    List<Student>getAllStudentsbyId(long id);
+
+    List<Student>getAllStudent();
+
+
 }

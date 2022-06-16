@@ -93,6 +93,9 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
         return days;
     }
 
+
+    //get by shifts Id
+
     @Override
     public List<Days> getAll() throws ExceptionDAO {
         PreparedStatement ps = null;
