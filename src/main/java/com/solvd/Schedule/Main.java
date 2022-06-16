@@ -1,6 +1,7 @@
 package com.solvd.Schedule;
 
 import com.solvd.Schedule.binary.Classroom;
+import com.solvd.Schedule.binary.Group;
 import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.binary.Student;
 import com.solvd.Schedule.dao.IClassroomDAO;
@@ -27,9 +28,6 @@ public class Main {
 //        System.out.println(stud.getEntity(2L));
 //        System.out.println(stud.getAll());
 
-        Student theStud= new Student();
-        theStud.setFirstName("Solange");
-        stud.update(28L, theStud);
 
         //testing groups
 //        GroupService groups = new GroupServiceImpl();
