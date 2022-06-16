@@ -3,7 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Shifts {
-    private Long id;
+    private long id;
     private String name;
 
     // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
@@ -16,11 +16,11 @@ public class Shifts {
     public Shifts(){
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

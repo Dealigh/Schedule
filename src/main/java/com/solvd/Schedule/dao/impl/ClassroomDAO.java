@@ -28,13 +28,13 @@ public class ClassroomDAO extends AbstractConnection implements IClassroomDAO {
     }
 
     @Override
-    public void update(Long id, Classroom entity) throws ExceptionDAO {
+    public void update(long id, Classroom entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
 
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
 
     }
@@ -77,7 +77,7 @@ public class ClassroomDAO extends AbstractConnection implements IClassroomDAO {
     }
 
     @Override
-    public Classroom getEntity(Long id) throws ExceptionDAO {
+    public Classroom getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = getConnect();

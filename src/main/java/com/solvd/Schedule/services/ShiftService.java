@@ -4,6 +4,6 @@ import com.solvd.Schedule.binary.Shifts;
 
 public interface ShiftService {
 
-    Shifts getShift (Long id);
+    Shifts getShift (long id);
 
 }

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 
 public class Days {
-    private Long id;
+    private long id;
     private String name;        // tambien con enums creo
     private int hours;
     private int shiftsId;
@@ -19,11 +19,11 @@ public class Days {
     public Days(){
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

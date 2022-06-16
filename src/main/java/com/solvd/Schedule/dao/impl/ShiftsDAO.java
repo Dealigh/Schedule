@@ -26,7 +26,7 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
     }
 
     @Override
-    public Shifts getEntity(Long id) throws ExceptionDAO {
+    public Shifts getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = getConnect();
@@ -61,12 +61,12 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
     }
 
     @Override
-    public void update(Long id, Shifts entity) throws ExceptionDAO {
+    public void update(long id, Shifts entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 

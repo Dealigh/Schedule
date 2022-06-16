@@ -9,19 +9,19 @@ import java.util.List;
 
 public class ProfessorServiceImpl implements ProfessorService {
     @Override
-    public Professor getProfessor(Long id) {
+    public Professor getProfessor(long id) {
         IProfessorDAO prof = new ProfessorDAO();
         return prof.getEntity(id);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
         IProfessorDAO prof = new ProfessorDAO();
         prof.delete(id);
     }
 
     @Override
-    public void update(Long id, Professor u) {
+    public void update(long id, Professor u) {
         IProfessorDAO prof = new ProfessorDAO();
         prof.update(id, u);
     }

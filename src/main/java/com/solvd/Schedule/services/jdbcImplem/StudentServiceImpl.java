@@ -7,17 +7,17 @@ import java.util.List;
 
 public class StudentServiceImpl implements StudendService {
     @Override
-    public Student getStudent(Long id) {
+    public Student getStudent(long id) {
         return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
 
     }
 
     @Override
-    public void update(Long id, Student u) {
+    public void update(long id, Student u) {
 
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
 
     @Override
-    public Subject getEntity(Long id) throws ExceptionDAO {
+    public Subject getEntity(long id) throws ExceptionDAO {
         return null;
     }
 
@@ -19,12 +19,12 @@ public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
     }
 
     @Override
-    public void update(Long id, Subject entity) throws ExceptionDAO {
+    public void update(long id, Subject entity) throws ExceptionDAO {
 
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
 
     }
 

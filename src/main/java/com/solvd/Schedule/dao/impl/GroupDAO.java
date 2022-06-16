@@ -26,12 +26,12 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
     }
 
     @Override
-    public void update(Long id, Group entity) throws ExceptionDAO {
+    public void update(long id, Group entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
@@ -46,7 +46,7 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
 
 
     @Override
-    public Group getEntity(Long id) throws ExceptionDAO {
+    public Group getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs= null;
         Connection conn = getConnect();

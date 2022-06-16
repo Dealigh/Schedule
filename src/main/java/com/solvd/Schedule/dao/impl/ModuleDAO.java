@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ModuleDAO extends AbstractConnection implements IModuleDAO {
 
-    private final String GET_ONE = "SELECT subjectsId, classroomsId, shiftsId from modules WHERE idModule=?";
+    private final String GET_ONE = "SELECT * from modules WHERE idModule=?";
     private final String GET_ALL = "SELECT subjectsId, classroomsId, shiftsId FROM modules";
 
     private static final Logger LOG = LogManager.getLogger(ModuleDAO.class);
@@ -21,17 +21,17 @@ public class ModuleDAO extends AbstractConnection implements IModuleDAO {
     }
 
     @Override
-    public void update(Long id, Module entity) throws ExceptionDAO {
+    public void update(long id, Module entity) throws ExceptionDAO {
 
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
 
     }
 
     @Override
-    public Module getEntity(Long id) throws ExceptionDAO {
+    public Module getEntity(long id) throws ExceptionDAO {
         return null;
     }
 

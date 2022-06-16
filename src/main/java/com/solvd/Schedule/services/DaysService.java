@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface DaysService {
 
-    Days getDays (Long id);
+    Days getDays (long id);
 
-    void update(Long id, Days u);
+    void update(long id, Days u);
 
     List<Days> getAllDays();
 

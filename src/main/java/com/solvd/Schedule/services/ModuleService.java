@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ModuleService {
 
-    Module getModule (Long id);
+    Module getModule (long id);
 
-    void delete(Long id);
+    void delete(long id);
 
-    void update(Long id, Module u);
+    void update(long id, Module u);
 
     void create(Module u);
 

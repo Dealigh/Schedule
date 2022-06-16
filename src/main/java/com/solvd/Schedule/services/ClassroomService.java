@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClassroomService {
 
-    Classroom getClassroom (Long id);
+    Classroom getClassroom (long id);
 
     List<Classroom> getAllClassrooms();
 
