@@ -26,4 +26,10 @@ public class DaysServiceImpl implements DaysService {
         return listDays.getAll();
     }
 
+    @Override
+    public List<Days> getAllbyShiftId(long id) {
+        IDaysDAO listDays = new DaysDAO();
+        return ((DaysDAO) listDays).getAllbyShiftId(id);
+    }
+
 }

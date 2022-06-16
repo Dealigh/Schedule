@@ -144,17 +144,6 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
         return listStud;
     }
 
-    private Student convertForGroup(ResultSet rs) throws SQLException {
-        Student newStud = new Student();
-        newStud.setId(rs.getLong("idStudents"));
-        newStud.setFirstName(rs.getString("firstName"));
-        newStud.setLastName(rs.getString("lastName"));
-        IGroupDAO group = new GroupDAO();
-        newStud.setGroup(group.getEntity(rs.getLong("groupId")));
-        return newStud;
-    }
-
-
     public List<Student> getAllbyGroupId(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -176,6 +165,14 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
         }
         return listStud;
     }
-
+    /*private Student convertForGroup(ResultSet rs) throws SQLException {
+        Student newStud = new Student();
+        newStud.setId(rs.getLong("idStudents"));
+        newStud.setFirstName(rs.getString("firstName"));
+        newStud.setLastName(rs.getString("lastName"));
+        IGroupDAO group = new GroupDAO();
+        newStud.setGroup(group.getEntity(rs.getLong("groupId")));
+        return newStud;
+    }*/
 
 }
