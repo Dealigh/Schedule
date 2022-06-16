@@ -14,7 +14,10 @@ import com.solvd.Schedule.services.jdbcImplem.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
     private static final Logger LOG = LogManager.getLogger(Main.class);
@@ -29,7 +32,8 @@ public class Main {
 
         Student theStud= new Student();
         theStud = stud.getEntity(1);
-        stud.update(28, theStud);
+        theStud.setFirstName("Lionel Andres");
+        stud.update(1, theStud);
 
         //testing groups
 //        GroupService groups = new GroupServiceImpl();
