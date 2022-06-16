@@ -89,7 +89,6 @@ public class Classroom {
         // Busco los dias puntuales de todos los shifts.
 
         List<Shifts> shiftsList = null;                                                         // solo para probar los streams desp se borra cuando tenga la lista buena.
-        List<Days> sameDays;
 
         shiftsList.stream().forEach(shi -> {
             shi.getDays().stream().filter(d -> (d.getName() == day.getName())).toList()         // lista de dias iguales de todos los turnos (todos los lunes por ejemplo)
