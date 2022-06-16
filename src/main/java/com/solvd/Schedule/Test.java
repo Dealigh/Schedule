@@ -1,41 +1,54 @@
 package com.solvd.Schedule;
 
-import com.solvd.Schedule.binary.Classroom;
-import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.binary.Student;
-import com.solvd.Schedule.dao.IClassroomDAO;
-import com.solvd.Schedule.dao.IProfessorDAO;
-import com.solvd.Schedule.dao.impl.ClassroomDAO;
-import com.solvd.Schedule.dao.impl.GroupDAO;
-import com.solvd.Schedule.dao.impl.ProfessorDAO;
-import com.solvd.Schedule.dao.impl.StudentDAO;
+import com.solvd.Schedule.dao.impl.*;
 import com.solvd.Schedule.services.*;
 import com.solvd.Schedule.services.jdbcImplem.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
-public class Main {
-    private static final Logger LOG = LogManager.getLogger(Main.class);
+public class Test {
+    private static final Logger LOG = LogManager.getLogger(Test.class);
 
     public static void main(String[] args) {
 
-        //testing student
+        //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
+        //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
+        //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
+
+
+//        //testing module
 //
-        StudentDAO stud = new StudentDAO();
-//        System.out.println(stud.getEntity(2L));
-//        System.out.println(stud.getAll());
+//        ModuleDAO mod = new ModuleDAO();
+//        System.out.println(mod.getAll());
+//        System.out.println(mod.getEntity(2));
+//
 
-        Student theStud= new Student();
-        theStud = stud.getEntity(1);
-        theStud.setFirstName("Lionel Andres");
-        stud.update(1, theStud);
 
-        //testing groups
+        //testing subject
+        SubjectDAO sub = new SubjectDAO();
+//        System.out.println(sub.getEntity(3));
+//        List<Subject> thisList = sub.getAll();
+//        for (Subject u : thisList) {
+//            LOG.info(u.toString());
+
+
+
+        //testing student
+        StudendService nnnStud = new StudentServiceImpl();
+        List<Student> thisList = nnnStud.getAllStudentsbyId(2);
+      for (Student u : thisList) {
+            LOG.info(u.toString());
+        }
+//
+//        Student theStud= new Student();
+//        theStud = stud.getEntity(1);
+//        theStud.setFirstName("Lionel Andres");
+//        stud.update(1, theStud);
+
+            //testing groups
 //        GroupService groups = new GroupServiceImpl();
 //        System.out.println(groups.getAllGroups());
 //        System.out.println(groups.getGroup(2L));
@@ -58,9 +71,9 @@ public class Main {
 //            LOG.info(classroomDAO.getClassroom(3L));
 
 
-        //Probando profesores
-//        ProfessorService professor = new ProfessorServiceImpl();
-//        LOG.info(professor.getProfessor(2L).getFirstName());
+            //Probando profesores
+        ProfessorService professor = new ProfessorServiceImpl();
+        LOG.info(professor.getProfessor(2L).getFirstName());
 //        LOG.info(professor.getProfessor(2L).getLastName());
 //        LOG.info(professor.getProfessor(2L).getId());
 //
@@ -85,4 +98,5 @@ public class Main {
 
         }
     }
+
 

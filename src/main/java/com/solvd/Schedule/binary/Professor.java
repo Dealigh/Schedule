@@ -13,7 +13,6 @@ public class Professor {
     }
 
     public Professor(){
-
     }
 
     public long getId() {
