@@ -1,10 +1,17 @@
 package com.solvd.Schedule.binary;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Shifts {
+    private final static Logger LOG = LogManager.getLogger(Shifts.class);
     private long id;
     private String name;
+    private List<Days> days;
 
     // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
 

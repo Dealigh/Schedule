@@ -40,6 +40,7 @@ public class Subject {
         this.professor = professor;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
