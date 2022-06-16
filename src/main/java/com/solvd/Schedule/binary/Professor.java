@@ -3,7 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Professor {
-    private Long id=null;
+    private long id;
     private String firstName;
     private String lastName;
 
@@ -16,11 +16,11 @@ public class Professor {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

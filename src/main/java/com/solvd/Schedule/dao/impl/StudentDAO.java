@@ -46,7 +46,7 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
     }
 
     @Override
-    public void update(Long id, Student entity) throws ExceptionDAO {
+    public void update(long id, Student entity) throws ExceptionDAO {
         PreparedStatement ps = null;
         Connection conn = getConnect();
         try{
@@ -68,7 +68,7 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
         PreparedStatement ps= null;
         Connection conn= getConnect();
         try {
@@ -97,7 +97,7 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
     }
 
     @Override
-    public Student getEntity(Long id) throws ExceptionDAO {
+    public Student getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = getConnect();

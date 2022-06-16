@@ -7,7 +7,7 @@ import com.solvd.Schedule.services.ShiftService;
 
 public class ShiftServiceImpl implements ShiftService {
     @Override
-    public Shifts getShift(Long id) {
+    public Shifts getShift(long id) {
         IShiftsDAO shift = new ShiftsDAO();
         return shift.getEntity(id);
     }

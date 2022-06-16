@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GroupService {
 
-    Group getGroup (Long id);
+    Group getGroup (long id);
 
        List<Group> getAllGroups();
 

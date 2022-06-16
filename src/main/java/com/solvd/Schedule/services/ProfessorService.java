@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ProfessorService {
 
-    Professor getProfessor(Long id);
+    Professor getProfessor(long id);
 
-    void delete(Long id);
+    void delete(long id);
 
-    void update(Long id, Professor u);
+    void update(long id, Professor u);
 
     void create(Professor u);
 

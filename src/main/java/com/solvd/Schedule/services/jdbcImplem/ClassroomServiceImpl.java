@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClassroomServiceImpl implements ClassroomService {
     @Override
-    public Classroom getClassroom(Long id) {
+    public Classroom getClassroom(long id) {
         IClassroomDAO classroomDAO = new ClassroomDAO();
         return classroomDAO.getEntity(id);
         }

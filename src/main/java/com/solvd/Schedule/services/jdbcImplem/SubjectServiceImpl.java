@@ -7,17 +7,17 @@ import java.util.List;
 
 public class SubjectServiceImpl implements SubjectService {
     @Override
-    public Subject getSubject(Long id) {
+    public Subject getSubject(long id) {
         return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
 
     }
 
     @Override
-    public void update(Long id, Subject u) {
+    public void update(long id, Subject u) {
 
     }
 

@@ -3,7 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Module {
-    private Long id;
+    private long id;
     private Subject subject;
     private Classroom classroom;
     private Shifts shifts;
@@ -17,11 +17,11 @@ public class Module {
     public Module(){
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

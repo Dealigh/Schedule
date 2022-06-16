@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GroupServiceImpl implements GroupService {
     @Override
-    public Group getGroup(Long id) {
+    public Group getGroup(long id) {
         IGroupDAO group = new GroupDAO();
         return group.getEntity(id);
     }

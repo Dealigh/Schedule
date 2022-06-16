@@ -1,14 +1,19 @@
 package com.solvd.Schedule.binary;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 
 public class Days {
-    private Long id;
+    private long id;
     private String name;        // tambien con enums creo
     private int hours;
     private int shiftsId;
-    //private Subject[] subjects = new Subject[4];        // tal vez cambiar arreglos por listas.
+    private List<Module> modules = new ArrayList<>(4);              //Cambie el array de Materias por una lista de modulos
+                                                                                // porque los mudolos ademas de la materia tambien tiene el aula que usa.
+                                                                                // necesario para determinar que aula usar a la hora de agregar una materia.
 
     public Days(String name, int hours, int shiftsId) {
         this.name = name;
@@ -19,11 +24,11 @@ public class Days {
     public Days(){
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -49,6 +54,21 @@ public class Days {
 
     public void setShiftsId(int shiftsId) {
         this.shiftsId = shiftsId;
+    }
+
+    public List<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
+    }
+    public List<Subject> getSubjects () {
+        List<Subject> returnList = null;
+        for (Module module : modules) {
+            returnList.add(module.getSubject());
+        }
+        return null;
     }
 
     @Override

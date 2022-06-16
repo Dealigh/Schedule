@@ -31,7 +31,7 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
     }
 
     @Override
-    public void update(Long id, Days entity) throws ExceptionDAO {
+    public void update(long id, Days entity) throws ExceptionDAO {
         PreparedStatement ps = null;
         Connection conn = getConnect();
         try{
@@ -54,7 +54,7 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
     }
 
     @Override
-    public void delete(Long id) throws ExceptionDAO {
+    public void delete(long id) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
@@ -69,7 +69,7 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
 
 
     @Override
-    public Days getEntity(Long id) throws ExceptionDAO {
+    public Days getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs= null;
         Connection conn = getConnect();

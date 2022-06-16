@@ -9,13 +9,13 @@ import java.util.List;
 
 public class DaysServiceImpl implements DaysService {
     @Override
-    public Days getDays(Long id) {
+    public Days getDays(long id) {
         IDaysDAO day = new DaysDAO();
         return day.getEntity(id);
     }
 
     @Override
-    public void update(Long id, Days u) {
+    public void update(long id, Days u) {
         IDaysDAO days = new DaysDAO();
         days.update(id, u);
     }
