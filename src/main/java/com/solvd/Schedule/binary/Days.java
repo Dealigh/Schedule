@@ -56,6 +56,21 @@ public class Days {
         this.shiftsId = shiftsId;
     }
 
+    public List<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
+    }
+    public List<Subject> getSubjects () {
+        List<Subject> returnList = null;
+        for (Module module : modules) {
+            returnList.add(module.getSubject());
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

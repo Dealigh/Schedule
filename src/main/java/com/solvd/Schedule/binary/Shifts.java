@@ -39,6 +39,13 @@ public class Shifts {
         this.name = name;
     }
 
+    public List<Days> getDays() {
+        return days;
+    }
+
+    public void setDays(List<Days> days) {
+        this.days = days;
+    }
 
     @Override
     public boolean equals(Object o) {
