@@ -19,6 +19,7 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
     private final String UPDATE = "UPDATE days SET name =?, hours= ?, shiftsId=?  WHERE idDays=?";
     private final String GET_ONE = "SELECT idDays, name, hours, shiftsId from days WHERE idDays=?";
     private final String GET_ALL = "SELECT idDays, name, hours, shiftsId FROM days";
+    private final String GET_ALL_ID = "SELECT idDays, name, hours, shiftsId FROM days WHERE shiftsId=?";
 
 
     private static final Logger LOG = LogManager.getLogger(DaysDAO.class);
@@ -117,5 +118,28 @@ public class DaysDAO extends AbstractConnection implements IDaysDAO {
         }
         return daysList;
     }
+
+    public List<Days> getAllbyShiftId(long id) throws ExceptionDAO {
+        PreparedStatement ps = null;
+        ResultSet rs= null;
+        Connection conn = getConnect();
+        List<Days> daysList = new ArrayList<>();
+        try {
+            ps = conn.prepareStatement(GET_ALL_ID);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                daysList.add(convert(rs));
+            }
+        } catch (SQLException e) {
+            LOG.error("Error in SQL", e);
+            throw new ExceptionDAO("Can't reach the List od Days");
+        } finally {
+            returnConnect(conn);
+            closeResources(ps, rs);
+        }
+        return daysList;
+    }
+
 
 }

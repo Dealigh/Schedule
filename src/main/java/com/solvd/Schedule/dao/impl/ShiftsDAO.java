@@ -1,6 +1,7 @@
 package com.solvd.Schedule.dao.impl;
 
 import com.solvd.Schedule.binary.Shifts;
+import com.solvd.Schedule.binary.Student;
 import com.solvd.Schedule.dao.IShiftsDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;
 import org.apache.logging.log4j.LogManager;
@@ -10,11 +11,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
 
     private final String GET_ONE = "SELECT idShifts, name from shifts WHERE idShifts=?";
+    private final String GET_ALL_ID = "SELECT idShifts, name FROM shifts WHERE name=?";
 
     private static final Logger LOG = LogManager.getLogger(ShiftsDAO.class);
 
@@ -70,5 +73,27 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
+
+    public List<Shifts> getAllShiftsbyName(String name) throws ExceptionDAO {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = getConnect();
+        List<Shifts> listStud = new ArrayList<>();
+        try {
+            ps = conn.prepareStatement(GET_ALL_ID);
+            ps.setString(1, name);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                listStud.add(convert(rs));
+            }
+        } catch (SQLException e) {
+            LOG.error("Error in SQL", e);
+            throw new ExceptionDAO("Can't reach the List of Shifts");
+        } finally {
+            returnConnect(conn);
+            closeResources(ps, rs);
+        }
+        return listStud;
+    }
 
 }
