@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.DaysService;
 import java.util.List;
 
 public class DaysServiceImpl implements DaysService {
+
     @Override
     public Days getDays(long id) {
         IDaysDAO day = new DaysDAO();
@@ -31,5 +32,4 @@ public class DaysServiceImpl implements DaysService {
         IDaysDAO listDays = new DaysDAO();
         return ((DaysDAO) listDays).getAllbyShiftId(id);
     }
-
 }

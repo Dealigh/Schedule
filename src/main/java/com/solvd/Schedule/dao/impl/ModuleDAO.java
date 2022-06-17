@@ -1,7 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
 import com.solvd.Schedule.binary.Module;
-import com.solvd.Schedule.binary.Shifts;
 import com.solvd.Schedule.dao.IClassroomDAO;
 import com.solvd.Schedule.dao.IModuleDAO;
 import com.solvd.Schedule.dao.IShiftsDAO;
@@ -25,7 +24,6 @@ public class ModuleDAO extends AbstractConnection implements IModuleDAO {
 
     private static final Logger LOG = LogManager.getLogger(ModuleDAO.class);
 
-
     @Override
     public void saveEntity(Module entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
@@ -43,7 +41,6 @@ public class ModuleDAO extends AbstractConnection implements IModuleDAO {
         throw new UnsupportedOperationException("No implementation yet");
 
     }
-
 
     public Module convert(ResultSet rs) throws SQLException {
         ISubjectDAO subj = new SubjectDAO();
@@ -104,12 +101,11 @@ public class ModuleDAO extends AbstractConnection implements IModuleDAO {
         return listModu;
     }
 
-
     public List<Module> getAllModulesbyShiftId(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = getConnect();
-        List<Module> mod= new ArrayList<>();
+        List<Module> mod = new ArrayList<>();
         try {
             ps = conn.prepareStatement(GET_ALL_ID);
             ps.setLong(1, id);

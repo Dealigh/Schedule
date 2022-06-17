@@ -15,7 +15,6 @@ public class Shifts {
 
     // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
 
-
     public Shifts(String name) {
         this.name = name;
     }
@@ -123,7 +122,6 @@ public class Shifts {
             return false;
         }
     }
-
 }
 
 

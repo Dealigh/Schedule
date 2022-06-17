@@ -1,7 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
 import com.solvd.Schedule.binary.Shifts;
-import com.solvd.Schedule.binary.Student;
 import com.solvd.Schedule.dao.IShiftsDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;
 import org.apache.logging.log4j.LogManager;
@@ -73,7 +72,6 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
         throw new UnsupportedOperationException("No implementation yet");
     }
 
-
     public List<Shifts> getAllShiftsbyName(String name) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -95,5 +93,4 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
         }
         return listStud;
     }
-
 }

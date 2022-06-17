@@ -9,33 +9,30 @@ import java.util.Properties;
 
 import static org.apache.logging.log4j.LogManager.*;
 
-    public class DBPropertiesUtil {
+public class DBPropertiesUtil {
 
-        private final static Logger LOG = getLogger(DBPropertiesUtil.class);
+    private final static Logger LOG = getLogger(DBPropertiesUtil.class);
 
-        private static Properties properties = new Properties();
-        private static DBPropertiesUtil dbPropertiesUtil = new DBPropertiesUtil();
+    private static Properties properties = new Properties();
+    private static DBPropertiesUtil dbPropertiesUtil = new DBPropertiesUtil();
 
-
-        private DBPropertiesUtil() {
-            try {
-                properties.load(new FileReader("src/main/resources/db.properties"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    private DBPropertiesUtil() {
+        try {
+            properties.load(new FileReader("src/main/resources/db.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        public static String getString(String key) {
-            return properties.getProperty(key);
-        }
-
-
-        public static int getInt(String key) {
-            return Integer.parseInt(properties.getProperty(key));
-        }
-
-
     }
+
+    public static String getString(String key) {
+        return properties.getProperty(key);
+    }
+
+
+    public static int getInt(String key) {
+        return Integer.parseInt(properties.getProperty(key));
+    }
+}
 

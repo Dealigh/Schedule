@@ -13,5 +13,4 @@ public interface DaysService {
     List<Days> getAllDays();
 
     List<Days> getAllbyShiftId(long id);
-
 }

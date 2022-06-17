@@ -20,7 +20,6 @@ public class ClassroomDAO extends AbstractConnection implements IClassroomDAO {
 
     private static final Logger LOG = LogManager.getLogger(ClassroomDAO.class);
 
-
     @Override
     public void saveEntity(Classroom entity) throws ExceptionDAO {
         throw new UnsupportedOperationException("No implementation yet");
@@ -106,6 +105,4 @@ public class ClassroomDAO extends AbstractConnection implements IClassroomDAO {
             return classroom;
         }
     }
-
-
 }

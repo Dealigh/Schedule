@@ -13,7 +13,7 @@ public class Subject {
         this.professor = professor;
     }
 
-    public Subject(){
+    public Subject() {
     }
 
     public long getId() {
@@ -39,7 +39,6 @@ public class Subject {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
-
 
     @Override
     public boolean equals(Object o) {

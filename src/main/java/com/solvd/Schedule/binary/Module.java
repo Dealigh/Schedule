@@ -14,7 +14,7 @@ public class Module {
         this.shifts = shifts;
     }
 
-    public Module(){
+    public Module() {
     }
 
     public long getId() {

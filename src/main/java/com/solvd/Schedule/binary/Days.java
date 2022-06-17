@@ -1,10 +1,8 @@
 package com.solvd.Schedule.binary;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 
 public class Days {
     private long id;
@@ -12,8 +10,8 @@ public class Days {
     private int hours;
     private int shiftsId;
     private List<Module> modules = new ArrayList<>(4);              //Cambie el array de Materias por una lista de modulos
-                                                                                // porque los mudolos ademas de la materia tambien tiene el aula que usa.
-                                                                                // necesario para determinar que aula usar a la hora de agregar una materia.
+    // porque los mudolos ademas de la materia tambien tiene el aula que usa.
+    // necesario para determinar que aula usar a la hora de agregar una materia.
 
     public Days(String name, int hours, int shiftsId) {
         this.name = name;
@@ -21,7 +19,7 @@ public class Days {
         this.shiftsId = shiftsId;
     }
 
-    public Days(){
+    public Days() {
     }
 
     public long getId() {
@@ -63,7 +61,8 @@ public class Days {
     public void setModules(List<Module> modules) {
         this.modules = modules;
     }
-    public List<Subject> getSubjects () {
+
+    public List<Subject> getSubjects() {
         List<Subject> returnList = null;
         for (Module module : modules) {
             returnList.add(module.getSubject());
@@ -94,4 +93,3 @@ public class Days {
                 '}';
     }
 }
-

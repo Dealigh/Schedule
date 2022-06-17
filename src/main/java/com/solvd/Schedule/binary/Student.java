@@ -15,8 +15,7 @@ public class Student {
         this.group = group;
     }
 
-    public Student(){
-
+    public Student() {
     }
 
     public long getId() {

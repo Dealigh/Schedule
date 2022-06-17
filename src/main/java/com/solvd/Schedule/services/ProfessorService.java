@@ -15,5 +15,4 @@ public interface ProfessorService {
     void create(Professor u);
 
     List<Professor> getProfessors();
-
 }

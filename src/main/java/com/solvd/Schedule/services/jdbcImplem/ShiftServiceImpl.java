@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.ShiftService;
 import java.util.List;
 
 public class ShiftServiceImpl implements ShiftService {
+
     @Override
     public Shifts getShift(long id) {
         IShiftsDAO shift = new ShiftsDAO();
