@@ -1,4 +1,4 @@
-package com.solvd.Schedule.util;
+package com.solvd.Schedule.util.connectionPool;
 
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +29,6 @@ public class DBPropertiesUtil {
     public static String getString(String key) {
         return properties.getProperty(key);
     }
-
 
     public static int getInt(String key) {
         return Integer.parseInt(properties.getProperty(key));

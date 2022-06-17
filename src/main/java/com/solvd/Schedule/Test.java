@@ -10,7 +10,7 @@ import java.util.List;
 public class Test {
     private static final Logger LOG = LogManager.getLogger(Test.class);
 
-    public static void main(String[] args) {
+    public static void mainSecond(String[] args) {
 
         //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
         //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
