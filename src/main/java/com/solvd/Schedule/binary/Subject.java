@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Subject {
+
     private long id;
     private String name;
     private Professor professor;

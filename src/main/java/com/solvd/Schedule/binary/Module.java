@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Module {
+
     private long id;
     private Subject subject;
     private Classroom classroom;

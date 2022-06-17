@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Days {
+
     private long id;
     private String name;        // tambien con enums creo
     private int hours;

@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Student {
+
     private long id;
     private String firstName;
     private String lastName;
