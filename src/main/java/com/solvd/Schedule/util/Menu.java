@@ -16,7 +16,8 @@ public class Menu {
             int option = 0;
             LOG.debug("\nChose the option below:\n" + "Opcion 1: xxxxxxx\n"
                     + "Option 2:xxxxxxxx\n"
-                    + "Option 3:xxxxxx \n " + "Option 4:xxxxxxx\n ");
+                    + "Option 3: To see all the Professors \n "
+                    + "Option 4:xxxxxxx\n ");
             try {
                 option = scanner.nextInt();
             } catch (InputMismatchException e) {
