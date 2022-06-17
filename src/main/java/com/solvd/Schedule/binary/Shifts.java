@@ -62,6 +62,7 @@ public class Shifts {
 
     @Override
     public String toString() {
+
         return "Shift{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
