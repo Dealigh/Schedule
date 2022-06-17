@@ -60,11 +60,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "Professor: " + firstName + " " + lastName + " ";
     }
 }
 

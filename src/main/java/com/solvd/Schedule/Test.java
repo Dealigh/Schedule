@@ -5,6 +5,7 @@ import com.solvd.Schedule.services.jdbcImplem.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
@@ -23,6 +24,8 @@ public class Test {
 //        System.out.println(day.getDays(2));
 //        System.out.println(day.getAllDays());
 //        System.out.println(day.getAllbyShiftId(3));
+
+
 
         ShiftService shift = new ShiftServiceImpl();
         System.out.println(shift.getAllShiftsbyName("Morning"));
