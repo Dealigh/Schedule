@@ -4,7 +4,7 @@ import com.solvd.Schedule.util.exceptions.ExceptionDAO;
 
 import java.util.List;
 
-public interface ManagerDAO <T> {
+public interface IManagerDAO<T> {
 
     void saveEntity(T entity) throws ExceptionDAO;
 
