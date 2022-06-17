@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Classroom {
+
     private long id;
     private int classroomNumber;
     private int size;

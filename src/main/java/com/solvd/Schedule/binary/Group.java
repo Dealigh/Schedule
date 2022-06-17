@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Group {
+
     private long id;
     private int limitAmount;
     private int shiftId;

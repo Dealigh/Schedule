@@ -14,14 +14,15 @@ public class Menu {
     public int menu() {
         {
             int option = 0;
-            LOG.debug("\nChose the option below:\n" + "Opcion 1: xxxxxxx\n"
+            LOG.debug("\nChose the option below:\n" + "Option 1: xxxxxxx\n"
                     + "Option 2:xxxxxxxx\n"
-                    + "Option 3:xxxxxx \n " + "Option 4:xxxxxxx\n ");
+                    + "Option 3:xxxxxx \n "
+                    + "Option 4:xxxxxxx\n ");
             try {
                 option = scanner.nextInt();
             } catch (InputMismatchException e) {
                 LOG.debug("Dear User, try to put a number");
-                LOG.error("Error in here", e);
+                throw new RuntimeException("Error in here", e);
             }
             return option;
         }
