@@ -1,5 +1,6 @@
 package com.solvd.Schedule;
 
+import com.solvd.Schedule.util.exceptions.InvalidSelection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,12 +26,14 @@ public class Runner {
                 LOG.info("Option 2");
                 break;
             case 3:
-                LOG.info("This are all the Professors in our School");
+                LOG.info("Here are all the Professors in our School");
                 getProfessorsList();
                 break;
             case 4:
                 LOG.info("option 4");
                 break;
+            default:
+                throw new InvalidSelection("You must chose a number between the numbered options");
         }
     }
 }

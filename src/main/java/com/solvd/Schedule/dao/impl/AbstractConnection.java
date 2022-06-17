@@ -1,6 +1,9 @@
 package com.solvd.Schedule.dao.impl;
 
+<<<<<<< HEAD
 import com.solvd.Schedule.util.ConnectionPool.ConnectionPool;
+=======
+>>>>>>> 988a06e318ac927c95a6af8e1a2a8ba1fec3ae8d
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
