@@ -1,8 +1,10 @@
 package com.solvd.Schedule.binary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Days {
 
@@ -10,7 +12,8 @@ public class Days {
     private String name;        // tambien con enums creo
     private int hours;
     private int shiftsId;
-    private List<Module> modules = new ArrayList<>(4);              //Cambie el array de Materias por una lista de modulos
+    private Shifts shift;
+    private List<Module> modules = new ArrayList<>(Arrays.asList(null, null, null, null));              //Cambie el array de Materias por una lista de modulos
     // porque los mudolos ademas de la materia tambien tiene el aula que usa.
     // necesario para determinar que aula usar a la hora de agregar una materia.
 
@@ -20,6 +23,10 @@ public class Days {
         this.shiftsId = shiftsId;
     }
 
+    public Days (String name, Shifts shift) {
+        this.name = name;
+        this.shift = shift;
+    }
     public Days() {
     }
 
@@ -63,12 +70,24 @@ public class Days {
         this.modules = modules;
     }
 
+    public Shifts getShift() {
+        return shift;
+    }
+
+    public void setShift(Shifts shift) {
+        this.shift = shift;
+    }
+
     public List<Subject> getSubjects() {
-        List<Subject> returnList = null;
+        List<Subject> returnList = new ArrayList<>();
         for (Module module : modules) {
-            returnList.add(module.getSubject());
+            if (module != null) {
+                returnList.add(module.getSubject());
+            }else {
+                returnList.add(null);
+            }
         }
-        return null;
+        return returnList;
     }
 
     @Override
@@ -86,11 +105,40 @@ public class Days {
 
     @Override
     public String toString() {
-        return "Days{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", hours=" + hours +
-                ", shiftsId=" + shiftsId +
-                '}';
+        String startString = ("\n\t\t" + this.getName() + "\n\t\t\t");
+        String time = "";
+        String auxString = "";
+        for (int i = 0; i < modules.size(); i++) {
+            switch (shift.getName()) {
+                case "Morning":{
+                    switch (i) {
+                        case 0: time = "8:00-9:00 -> ";break;
+                        case 1: time = "9:00-10:00 -> ";break;
+                        case 2: time = "10:00-11:00 -> ";break;
+                        case 3: time = "11:00-12:00 -> ";break;
+                    }
+                    break;
+                }
+                case "Afternoon":{
+                    switch (i) {
+                        case 0: time = "16:00-17:00 -> ";break;
+                        case 1: time = "17:00-18:00 -> ";break;
+                        case 2: time = "18:00-19:00 -> ";break;
+                        case 3: time = "19:00-20:00 -> ";break;
+                    }
+                }
+                break;
+            }
+            if (modules.get(i) != null) {
+                auxString = auxString + time + modules.get(i).getSubject().getName() + "\n\t\t\t\t"
+                        + modules.get(i).getSubject().getProfessor() + "\n\t\t\t\t"
+                        + "Classroom N°: " + modules.get(i).getClassroom().getClassroomNumber() + "\n\t\t\t";
+            }else {
+                auxString = auxString + time + "Empty" + "\n\t\t\t";
+            }
+        }
+        return startString + auxString;
     }
+
+
 }

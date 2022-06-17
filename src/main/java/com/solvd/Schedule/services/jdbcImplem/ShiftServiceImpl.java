@@ -22,7 +22,23 @@ public class ShiftServiceImpl implements ShiftService {
 
     @Override
     public List<Shifts> getAllShiftsbyName(String name) {
-        IShiftsDAO shift = new ShiftsDAO();
-        return ((ShiftsDAO) shift).getAllShiftsbyName(name);
+        ShiftsDAO shift = new ShiftsDAO();
+        DaysDAO days = new DaysDAO();
+        List<Shifts> retShifts = shift.getAllShiftsbyName(name);
+        retShifts.forEach(shi -> {
+            shi.setDays(days.getAllbyShiftId(shi.getId()));
+        });
+        return retShifts;
+    }
+
+    @Override
+    public List<Shifts> getShifts() {
+        ShiftsDAO shift = new ShiftsDAO();
+        DaysDAO days = new DaysDAO();
+        List<Shifts> retShifts =  shift.getAll();
+        retShifts.forEach(shi -> {
+            shi.setDays(days.getAllbyShiftId(shi.getId()));
+        });
+        return retShifts;
     }
 }

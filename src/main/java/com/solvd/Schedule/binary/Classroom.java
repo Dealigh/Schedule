@@ -7,6 +7,7 @@ import com.solvd.Schedule.services.jdbcImplem.ShiftServiceImpl;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Classroom {
 
@@ -99,6 +100,7 @@ public class Classroom {
                         availableClassrooms.remove(sameDay.getModules().get(time).getClassroom());          // quito las aulas utilizadas de una lista de todos las aulas
                     });
         });
-        return availableClassrooms.get(0);
+        Random rand = new Random();
+        return availableClassrooms.get(rand.nextInt(availableClassrooms.size()));
     }
 }

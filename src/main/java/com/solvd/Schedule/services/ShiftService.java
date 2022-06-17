@@ -9,4 +9,6 @@ public interface ShiftService {
     Shifts getShift (long id);
 
     List<Shifts> getAllShiftsbyName(String name);
+
+    List<Shifts> getShifts();
 }
