@@ -80,24 +80,15 @@ public class Classroom {
                 '}';
     }
 
-    /**
-     * Este metodo es para chequear que salones estan disponibles en un determinado dia a una determinada hora
-     */
-
     public Classroom checkClassrooms(Shifts shift, Days day, int time) {
         ClassroomService classroomServ = new ClassroomServiceImpl();
-        List<Classroom> availableClassrooms = classroomServ.getAllClassrooms();                 //lista de todas las aulas para ir sacando de aca las q no esten disponibles
-        // Busco todos los shifts que tengan el mismo nombre (Mañana, Tarde).
-        // Necesito poder obtener de la base de datos todos los shifts que tengan el mismo nombre
-        // ShiftService shiftServ = new ShiftService ();
-        // List<Shift> shiftList = shiftServ.getByName(shift.getName)
-        // Busco los dias puntuales de todos los shifts.
+        List<Classroom> availableClassrooms = classroomServ.getAllClassrooms();
         ShiftService shiftServ = new ShiftServiceImpl();
-        List<Shifts> shiftsList = shiftServ.getAllShiftsbyName(shift.getName());                                                    // solo para probar los streams desp se borra cuando tenga la lista buena.
+        List<Shifts> shiftsList = shiftServ.getAllShiftsbyName(shift.getName());
         shiftsList.stream().forEach(shi -> {
-            shi.getDays().stream().filter(d -> (d.getName() == day.getName())).toList()         // lista de dias iguales de todos los turnos (todos los lunes por ejemplo)
+            shi.getDays().stream().filter(d -> (d.getName() == day.getName())).toList()
                     .forEach(sameDay -> {
-                        availableClassrooms.remove(sameDay.getModules().get(time).getClassroom());          // quito las aulas utilizadas de una lista de todos las aulas
+                        availableClassrooms.remove(sameDay.getModules().get(time).getClassroom());
                     });
         });
         Random rand = new Random();

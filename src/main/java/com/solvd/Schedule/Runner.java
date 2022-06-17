@@ -35,7 +35,7 @@ public class Runner {
                 LOG.info("Select a shift:\n\t1. Morning.\n\t2. Afternoon.");
                 if (sc.nextInt() == 1) {
                     shiftName = "Morning";
-                }else {
+                } else {
                     shiftName = "Afternoon";
                 }
                 Shifts shift = new Shifts(shiftName);
@@ -72,9 +72,6 @@ public class Runner {
             case 3:
                 LOG.info("Here are all the Professors in our School");
                 getProfessorsList();
-                break;
-            case 4:
-                LOG.info("option 4");
                 break;
             default:
                 throw new InvalidSelection("You must chose a number between the numbered options");

@@ -1,4 +1,4 @@
-package com.solvd.Schedule.util.ConnectionPool;
+package com.solvd.Schedule.util.connectionPool;
 
 import com.solvd.Schedule.util.Constants;
 import com.solvd.Schedule.util.exceptions.ExceptionConnection;
@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPool {
+
     private final String URL = DBPropertiesUtil.getString(Constants.URL.getConstantValues());
     private final String USER = DBPropertiesUtil.getString(Constants.USERNAME.getConstantValues());
     private final String PASS = DBPropertiesUtil.getString(Constants.PASSWORD.getConstantValues());

@@ -1,7 +1,6 @@
 package com.solvd.Schedule.services.jdbcImplem;
 
 import com.solvd.Schedule.binary.Days;
-import com.solvd.Schedule.binary.Shifts;
 import com.solvd.Schedule.dao.IDaysDAO;
 import com.solvd.Schedule.dao.impl.DaysDAO;
 import com.solvd.Schedule.dao.impl.ShiftsDAO;
