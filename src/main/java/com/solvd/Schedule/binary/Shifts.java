@@ -19,8 +19,6 @@ public class Shifts {
     private String name;
     private List<Days> days;
 
-    // Capaz conviene hacer esto con enums (Morning, afternoon, night), no me convence el nombre igual
-
     public Shifts(String name) {
         this.name = name;
     }
@@ -69,18 +67,10 @@ public class Shifts {
     public String toString() {
         AtomicReference<String> retString = new AtomicReference<>("Shift.\n\tId: " + this.id + " " + this.getName());
         days.forEach(day -> {
-           retString.set(retString + day.toString());
+            retString.set(retString + day.toString());
         });
         return retString.get();
     }
-
-    /**
-     * Este metodo deberia y podria implementarse usando streams pero la verdad que me rompio
-     * la cabeza pensarlo con streams. Quise hacerlo con ciclos tranquis para tenerlo funcionando y ver bien
-     * que tengo que hacer primero, despues voy a buscar la forma de hacerlo con streams
-     * Aca todavia falta implementar la busqueda de salones disponibles, mirar metodo checkClassrooms
-     * en clase Classroom. Falta meter esto en algun lado importate ver mañana.
-     */
 
     public boolean addModule(Module module) {
         Subject subject = module.getSubject();
@@ -89,7 +79,7 @@ public class Shifts {
             for (int i = 0; i < days.size(); i++) {
                 List<Module> moduls = days.get(i).getModules();
                 for (int j = 0; j < moduls.size(); j++) {
-                    if ((moduls.get(j) == null)&&(subject.checkSubject(this, days.get(i), j))) {
+                    if ((moduls.get(j) == null) && (subject.checkSubject(this, days.get(i), j))) {
                         Classroom availableClassroom = new Classroom();
                         availableClassroom = availableClassroom.checkClassrooms(this, days.get(i), j);
                         module.setClassroom(availableClassroom);
@@ -108,24 +98,17 @@ public class Shifts {
         return aux;
     }
 
-    /**
-     * Este metodo es para chequear que la materia que queremos meter al shift no exista mas de dos veces en toda la semana
-     * Tenemos 5 dias por shift, 4 horas por dia, entonces 20 posibles horas de materias.
-     * A la vez tenemos 10 materias, si las distribuimos parejo (2 veces cada materia en la semana) nos ahorramos el tener que chequear
-     * que no haya mas de 3 materias por dia.
-     */
-
     private boolean checkSubjectAmount(Subject subject) {
-        AtomicInteger subjectCount = new AtomicInteger();           //contador de la cantidad de veces que encontramos la materia
-        days.forEach(day -> {                                       // recorro los dias del shift
-            List<Subject> subj = day.getSubjects();                    // agarro un arreglo de las materias de cada dia
-            for (Subject subject1 : subj) {                         // recorro las materias
-                if (subject1 == subject) {                          // si encuentro la materia ya metida sumo el contador
+        AtomicInteger subjectCount = new AtomicInteger();
+        days.forEach(day -> {
+            List<Subject> subj = day.getSubjects();
+            for (Subject subject1 : subj) {
+                if (subject1 == subject) {
                     subjectCount.getAndIncrement();
                 }
             }
         });
-        if (subjectCount.get() < 2) {                                // si el contador < 3 la materia aparece 2 veces o menos, devuelvo true sino false.
+        if (subjectCount.get() < 2) {
             return true;
         } else {
             LOG.info("Subject: " + subject.getName() + " has already two lessons this week.");
@@ -133,7 +116,7 @@ public class Shifts {
         }
     }
 
-    public void createFromScratch () {
+    public void createFromScratch() {
         SubjectService subjServ = new SubjectServiceImpl();
         List<Subject> subjList = subjServ.getAllSubjects();
         Random rand = new Random();
@@ -146,7 +129,7 @@ public class Shifts {
             module.setSubject(subject);
             if (checkSubjectAmount(subject)) {
                 addModule(module);
-            }else {
+            } else {
                 subjList.remove(randomIndex);
             }
         }

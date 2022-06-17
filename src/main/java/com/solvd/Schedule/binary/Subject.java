@@ -68,14 +68,14 @@ public class Subject {
                 '}';
     }
 
-    public boolean checkSubject (Shifts shift, Days day, int time) {
+    public boolean checkSubject(Shifts shift, Days day, int time) {
         AtomicBoolean returnValue = new AtomicBoolean(true);
         ShiftService shiftServ = new ShiftServiceImpl();
         List<Shifts> shiftsList = shiftServ.getAllShiftsbyName(shift.getName());
         shiftsList.stream().forEach(shi -> {
             shi.getDays().stream().filter(d -> (d.getName() == day.getName())).toList()
                     .forEach(sameDay -> {
-                        if (sameDay.getModules().get(time).getSubject() == this){
+                        if (sameDay.getModules().get(time).getSubject() == this) {
                             returnValue.set(false);
                         }
                     });

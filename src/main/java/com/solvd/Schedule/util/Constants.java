@@ -6,7 +6,8 @@ public enum Constants {
     URL("db.url"),
     USERNAME("db.username"),
     PASSWORD("db.pass"),
-    PATHJSON("src/main/resources/Professors.json");
+    PATHJSON("src/main/resources/Professors.json"),
+    PATHPROPERTIES("src/main/resources/db.properties");
 
     private String constantValues;
 

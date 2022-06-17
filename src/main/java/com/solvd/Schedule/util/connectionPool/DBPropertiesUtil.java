@@ -1,24 +1,20 @@
 package com.solvd.Schedule.util.connectionPool;
 
-import org.apache.logging.log4j.Logger;
+import com.solvd.Schedule.util.Constants;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-import static org.apache.logging.log4j.LogManager.*;
-
 public class DBPropertiesUtil {
-
-    private final static Logger LOG = getLogger(DBPropertiesUtil.class);
 
     private static Properties properties = new Properties();
     private static DBPropertiesUtil dbPropertiesUtil = new DBPropertiesUtil();
 
     private DBPropertiesUtil() {
         try {
-            properties.load(new FileReader("src/main/resources/db.properties"));
+            properties.load(new FileReader(Constants.PATHPROPERTIES.getConstantValues()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

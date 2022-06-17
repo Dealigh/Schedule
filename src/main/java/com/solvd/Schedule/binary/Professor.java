@@ -8,8 +8,10 @@ public class Professor {
 
     @JsonProperty("idProfessors")
     private long id;
+
     @JsonProperty("First Name")
     private String firstName;
+
     @JsonProperty("Last Name")
     private String lastName;
 

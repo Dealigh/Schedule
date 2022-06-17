@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPool {
+
     private final String URL = DBPropertiesUtil.getString(Constants.URL.getConstantValues());
     private final String USER = DBPropertiesUtil.getString(Constants.USERNAME.getConstantValues());
     private final String PASS = DBPropertiesUtil.getString(Constants.PASSWORD.getConstantValues());
