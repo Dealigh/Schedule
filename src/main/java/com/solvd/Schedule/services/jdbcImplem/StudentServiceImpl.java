@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.StudendService;
 import java.util.List;
 
 public class StudentServiceImpl implements StudendService {
+
     @Override
     public Student getStudent(long id) {
         IStudentDAO stud = new StudentDAO();
@@ -45,7 +46,4 @@ public class StudentServiceImpl implements StudendService {
         IStudentDAO stud = new StudentDAO();
         return stud.getAll();
     }
-
-
-
 }

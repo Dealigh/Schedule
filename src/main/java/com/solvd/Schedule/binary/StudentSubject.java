@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class StudentSubject {
+
     private long id;
     private Student student;
     private Subject subject;
@@ -15,7 +16,7 @@ public class StudentSubject {
         this.grade = grade;
     }
 
-    public StudentSubject(){
+    public StudentSubject() {
 
     }
 

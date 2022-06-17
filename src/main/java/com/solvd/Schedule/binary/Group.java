@@ -3,16 +3,17 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Group {
+
     private long id;
     private int limitAmount;
     private int shiftId;
 
-    public Group( int shiftId, int limitAmount) {
-        this.limitAmount=limitAmount;
+    public Group(int shiftId, int limitAmount) {
+        this.limitAmount = limitAmount;
         this.shiftId = shiftId;
     }
 
-    public Group(){
+    public Group() {
     }
 
     public long getId() {

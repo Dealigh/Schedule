@@ -1,7 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
-import com.solvd.Schedule.util.ConnectionPool;
-import com.solvd.Schedule.util.exceptions.ExceptionDAO;
+import com.solvd.Schedule.util.connectionPool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

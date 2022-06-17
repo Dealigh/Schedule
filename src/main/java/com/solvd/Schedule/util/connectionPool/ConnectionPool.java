@@ -1,5 +1,6 @@
-package com.solvd.Schedule.util;
+package com.solvd.Schedule.util.connectionPool;
 
+import com.solvd.Schedule.util.Constants;
 import com.solvd.Schedule.util.exceptions.ExceptionConnection;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -9,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPool {
-    private final String URL = DBPropertiesUtil.getString(Constants.URL);
-    private final String USER = DBPropertiesUtil.getString(Constants.USERNAME);
-    private final String PASS = DBPropertiesUtil.getString(Constants.PASSWORD);
+    private final String URL = DBPropertiesUtil.getString(Constants.URL.getConstantValues());
+    private final String USER = DBPropertiesUtil.getString(Constants.USERNAME.getConstantValues());
+    private final String PASS = DBPropertiesUtil.getString(Constants.PASSWORD.getConstantValues());
     private static ConnectionPool datasource;
     private BasicDataSource basicDataSource;
 
-    private final static int MAX_CONNECTIONS = DBPropertiesUtil.getInt(Constants.MAX_CONNECTIONS);
+    private final static int MAX_CONNECTIONS = DBPropertiesUtil.getInt(Constants.MAX_CONNECTIONS.getConstantValues());
     private int createdConnectionsAmount = 0;
 
     private List<Connection> connectionList = new ArrayList<>(MAX_CONNECTIONS);
@@ -67,5 +68,4 @@ public class ConnectionPool {
     public void returnConnection(Connection connection) {
         connectionList.add(connection);
     }
-
 }

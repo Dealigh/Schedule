@@ -1,16 +1,20 @@
 package com.solvd.Schedule.util;
 
-public interface Constants {
+public enum Constants {
 
-    String MAX_CONNECTIONS = "db.max_connections";
+    MAX_CONNECTIONS("db.max_connections"),
+    URL("db.url"),
+    USERNAME("db.username"),
+    PASSWORD("db.pass"),
+    PATHJSON("src/main/resources/Professors.json");
 
-    String URL = "db.url";
+    private String constantValues;
 
-    String USERNAME = "db.username";
+    Constants(String constants) {
+        this.constantValues = constants;
+    }
 
-    String PASSWORD = "db.pass";
-
-
-    String JSON = " asd";
-
+    public String getConstantValues() {
+        return constantValues;
+    }
 }

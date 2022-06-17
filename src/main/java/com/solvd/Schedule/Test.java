@@ -1,7 +1,5 @@
 package com.solvd.Schedule;
 
-import com.solvd.Schedule.binary.Student;
-import com.solvd.Schedule.dao.impl.*;
 import com.solvd.Schedule.services.*;
 import com.solvd.Schedule.services.jdbcImplem.*;
 import org.apache.logging.log4j.LogManager;
@@ -12,11 +10,25 @@ import java.util.List;
 public class Test {
     private static final Logger LOG = LogManager.getLogger(Test.class);
 
-    public static void main(String[] args) {
+    public static void mainSecond(String[] args) {
 
         //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
         //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
         //TENEMOS QUE METER UN JSON ANTES QUE NOS OLVIDEMOS
+
+
+        //testing days
+//
+//        DaysService day = new DaysServiceImpl();
+//        System.out.println(day.getDays(2));
+//        System.out.println(day.getAllDays());
+//        System.out.println(day.getAllbyShiftId(3));
+
+        ShiftService shift = new ShiftServiceImpl();
+        System.out.println(shift.getAllShiftsbyName("Morning"));
+
+        ModuleService mods = new ModuleServiceImpl();
+        System.out.println(mods.getAllModulesbyShiftId(1));
 
 
 //        //testing module
@@ -27,22 +39,22 @@ public class Test {
 //
 
 
-        //testing subject
-        SubjectDAO sub = new SubjectDAO();
-//        System.out.println(sub.getEntity(3));
-//        List<Subject> thisList = sub.getAll();
+//        //testing subject
+//        SubjectService subs = new SubjectServiceImpl();
+//        System.out.println(subs.getSubject(3));
+//        List<Subject> thisList = subs.getAllSubjects();
 //        for (Subject u : thisList) {
 //            LOG.info(u.toString());
+//        }
 
-
-
-        //testing student
-        StudendService nnnStud = new StudentServiceImpl();
-        List<Student> thisList = nnnStud.getAllStudentsbyId(2);
-      for (Student u : thisList) {
-            LOG.info(u.toString());
-        }
-//
+//        //testing student
+//        StudendService nnnStud = new StudentServiceImpl();
+//        System.out.println(nnnStud.getStudent(2));
+//        List<Student> thisList = nnnStud.getAllStudentsbyId(2);
+//      for (Student u : thisList) {
+//            LOG.info(u.toString());
+//        }
+////
 //        Student theStud= new Student();
 //        theStud = stud.getEntity(1);
 //        theStud.setFirstName("Lionel Andres");
@@ -71,9 +83,9 @@ public class Test {
 //            LOG.info(classroomDAO.getClassroom(3L));
 
 
-            //Probando profesores
-        ProfessorService professor = new ProfessorServiceImpl();
-        LOG.info(professor.getProfessor(2L).getFirstName());
+//            //Probando profesores
+//            ProfessorService professor = new ProfessorServiceImpl();
+//            LOG.info(professor.getProfessor(2L).getFirstName());
 //        LOG.info(professor.getProfessor(2L).getLastName());
 //        LOG.info(professor.getProfessor(2L).getId());
 //
@@ -94,9 +106,6 @@ public class Test {
 //        for (Professor u : thisList) {
 //            LOG.info(u.toString());
 //        }
-
-
-        }
     }
-
+}
 

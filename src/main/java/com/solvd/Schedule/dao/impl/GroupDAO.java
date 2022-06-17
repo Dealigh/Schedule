@@ -44,14 +44,13 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
         return group;
     }
 
-
     @Override
     public Group getEntity(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
-        ResultSet rs= null;
+        ResultSet rs = null;
         Connection conn = getConnect();
         Group group;
-            try {
+        try {
             ps = conn.prepareStatement(GET_ONE);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -73,7 +72,7 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
     @Override
     public List<Group> getAll() throws ExceptionDAO {
         PreparedStatement ps = null;
-        ResultSet rs= null;
+        ResultSet rs = null;
         Connection conn = getConnect();
         List<Group> groupList = new ArrayList<>();
         try {
@@ -91,5 +90,4 @@ public class GroupDAO extends AbstractConnection implements IGroupDAO {
         }
         return groupList;
     }
-
 }

@@ -3,11 +3,11 @@ package com.solvd.Schedule.binary;
 import com.solvd.Schedule.services.ClassroomService;
 import com.solvd.Schedule.services.jdbcImplem.ClassroomServiceImpl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class Classroom {
+
     private long id;
     private int classroomNumber;
     private int size;
@@ -19,7 +19,7 @@ public class Classroom {
         this.available = available;
     }
 
-    public Classroom(){
+    public Classroom() {
     }
 
     public long getId() {
@@ -77,9 +77,11 @@ public class Classroom {
                 '}';
     }
 
-    /** Este metodo es para chequear que salones estan disponibles en un determinado dia a una determinada hora*/
+    /**
+     * Este metodo es para chequear que salones estan disponibles en un determinado dia a una determinada hora
+     */
 
-    private List<Classroom> checkClassrooms (Shifts shift, Days day, int time) {
+    private List<Classroom> checkClassrooms(Shifts shift, Days day, int time) {
         ClassroomService classroomServ = new ClassroomServiceImpl();
         List<Classroom> availableClassrooms = classroomServ.getAllClassrooms();                 //lista de todas las aulas para ir sacando de aca las q no esten disponibles
         // Busco todos los shifts que tengan el mismo nombre (Mañana, Tarde).

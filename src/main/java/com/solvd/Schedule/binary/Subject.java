@@ -3,6 +3,7 @@ package com.solvd.Schedule.binary;
 import java.util.Objects;
 
 public class Subject {
+
     private long id;
     private String name;
     private Professor professor;
@@ -13,7 +14,7 @@ public class Subject {
         this.professor = professor;
     }
 
-    public Subject(){
+    public Subject() {
     }
 
     public long getId() {
@@ -39,7 +40,6 @@ public class Subject {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
-
 
     @Override
     public boolean equals(Object o) {

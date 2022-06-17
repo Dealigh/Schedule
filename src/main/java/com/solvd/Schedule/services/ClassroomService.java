@@ -9,5 +9,4 @@ public interface ClassroomService {
     Classroom getClassroom (long id);
 
     List<Classroom> getAllClassrooms();
-
 }

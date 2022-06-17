@@ -1,7 +1,5 @@
 package com.solvd.Schedule.dao.impl;
 
-import com.solvd.Schedule.binary.Group;
-import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.binary.Student;
 import com.solvd.Schedule.dao.IGroupDAO;
 import com.solvd.Schedule.dao.IStudentDAO;
@@ -26,7 +24,6 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
     private final String GET_ALL_ID = "SELECT idStudents, firstName, lastName, groupId FROM students WHERE groupId=?";
 
     private static final Logger LOG = LogManager.getLogger(StudentDAO.class);
-
 
     @Override
     public void saveEntity(Student entity) throws ExceptionDAO {
@@ -144,17 +141,6 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
         return listStud;
     }
 
-    private Student convertForGroup(ResultSet rs) throws SQLException {
-        Student newStud = new Student();
-        newStud.setId(rs.getLong("idStudents"));
-        newStud.setFirstName(rs.getString("firstName"));
-        newStud.setLastName(rs.getString("lastName"));
-        IGroupDAO group = new GroupDAO();
-        newStud.setGroup(group.getEntity(rs.getLong("groupId")));
-        return newStud;
-    }
-
-
     public List<Student> getAllbyGroupId(long id) throws ExceptionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -176,6 +162,13 @@ public class StudentDAO extends AbstractConnection implements IStudentDAO {
         }
         return listStud;
     }
-
-
+    /*private Student convertForGroup(ResultSet rs) throws SQLException {
+        Student newStud = new Student();
+        newStud.setId(rs.getLong("idStudents"));
+        newStud.setFirstName(rs.getString("firstName"));
+        newStud.setLastName(rs.getString("lastName"));
+        IGroupDAO group = new GroupDAO();
+        newStud.setGroup(group.getEntity(rs.getLong("groupId")));
+        return newStud;
+    }*/
 }

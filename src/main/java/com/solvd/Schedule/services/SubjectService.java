@@ -15,5 +15,4 @@ public interface SubjectService {
     void create(Subject u);
 
     List<Subject> getAllSubjects();
-
 }

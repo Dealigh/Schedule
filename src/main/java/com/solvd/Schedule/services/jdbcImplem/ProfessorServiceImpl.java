@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.ProfessorService;
 import java.util.List;
 
 public class ProfessorServiceImpl implements ProfessorService {
+
     @Override
     public Professor getProfessor(long id) {
         IProfessorDAO prof = new ProfessorDAO();
