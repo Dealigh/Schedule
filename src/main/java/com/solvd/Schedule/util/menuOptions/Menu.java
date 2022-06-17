@@ -10,7 +10,7 @@ public class Menu {
     public static void menuOptions() {
 
         MenuOptions[] options = MenuOptions.values();
-        LOG.info("Please press the number if you are here for: ");
+        LOG.info("Please select an option:");
         for (MenuOptions o : options) {
             LOG.info((o.ordinal() + 1) + ") " + o.getMenuOptions());
         }

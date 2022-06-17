@@ -1,5 +1,6 @@
 package com.solvd.Schedule.dao.impl;
 
+import com.solvd.Schedule.binary.Professor;
 import com.solvd.Schedule.binary.Shifts;
 import com.solvd.Schedule.dao.IShiftsDAO;
 import com.solvd.Schedule.util.exceptions.ExceptionDAO;
@@ -17,6 +18,7 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
 
     private final String GET_ONE = "SELECT idShifts, name from shifts WHERE idShifts=?";
     private final String GET_ALL_ID = "SELECT idShifts, name FROM shifts WHERE name=?";
+    private final String GET_ALL = "SELECT * FROM shifts";
 
     private static final Logger LOG = LogManager.getLogger(ShiftsDAO.class);
 
@@ -54,7 +56,24 @@ public class ShiftsDAO extends AbstractConnection implements IShiftsDAO {
 
     @Override
     public List<Shifts> getAll() throws ExceptionDAO {
-        throw new UnsupportedOperationException("No implementation yet");
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = getConnect();
+        List<Shifts> listShifts = new ArrayList<>();
+        try {
+            ps = conn.prepareStatement(GET_ALL);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                listShifts.add(convert(rs));
+            }
+        } catch (SQLException e) {
+            LOG.error("Error in SQL", e);
+            throw new ExceptionDAO("Can't reach the Shifts");
+        } finally {
+            returnConnect(conn);
+            closeResources(ps, rs);
+        }
+        return listShifts;
     }
 
     @Override

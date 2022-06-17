@@ -1,6 +1,11 @@
 package com.solvd.Schedule.binary;
 
+import com.solvd.Schedule.services.ShiftService;
+import com.solvd.Schedule.services.jdbcImplem.ShiftServiceImpl;
+
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Subject {
 
@@ -61,5 +66,20 @@ public class Subject {
                 ", name=" + name +
                 ", professor=" + professor +
                 '}';
+    }
+
+    public boolean checkSubject (Shifts shift, Days day, int time) {
+        AtomicBoolean returnValue = new AtomicBoolean(true);
+        ShiftService shiftServ = new ShiftServiceImpl();
+        List<Shifts> shiftsList = shiftServ.getAllShiftsbyName(shift.getName());
+        shiftsList.stream().forEach(shi -> {
+            shi.getDays().stream().filter(d -> (d.getName() == day.getName())).toList()
+                    .forEach(sameDay -> {
+                        if (sameDay.getModules().get(time).getSubject() == this){
+                            returnValue.set(false);
+                        }
+                    });
+        });
+        return returnValue.get();
     }
 }

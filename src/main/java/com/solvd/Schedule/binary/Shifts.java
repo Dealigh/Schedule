@@ -1,11 +1,16 @@
 package com.solvd.Schedule.binary;
 
+import com.solvd.Schedule.services.SubjectService;
+import com.solvd.Schedule.services.jdbcImplem.SubjectServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Shifts {
 
@@ -62,13 +67,11 @@ public class Shifts {
 
     @Override
     public String toString() {
-        return "Shift{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", days=" +
-                ", modules=" +
-                ", calendar=" +
-                '}';
+        AtomicReference<String> retString = new AtomicReference<>("Shift.\n\tId: " + this.id + " " + this.getName());
+        days.forEach(day -> {
+           retString.set(retString + day.toString());
+        });
+        return retString.get();
     }
 
     /**
@@ -79,24 +82,30 @@ public class Shifts {
      * en clase Classroom. Falta meter esto en algun lado importate ver mañana.
      */
 
-    public void addSubject(Module module) {
-        if (checkSubject(module.getSubject())) {                                                // Chequeo si la materia no esta muchas veces en el shift (mirar metodo abajo)
-            boolean aux = false;
-            for (int i = 0; i < days.size(); i++) {                                // recorro todos los dias del shift
-                List<Module> moduls = days.get(i).getModules();                        // Array auxiliar de materias.
-                for (int j = 0; j < moduls.size(); j++) {                              // Recorro todas las horas del dia
-                    if (moduls.get(j) == null) {                                           // Busco una hora que este vacia
-                        moduls.set(j, module);                                           // Guardo la materia que quiero agregar en la hora vacia.
-                        aux = true;                                                   // Auxiliar para romper el primer ciclo (El manejado por la i)
-                        break;                                                        // Break para romper este ciclo (el segundo manejado x la J) ->
-                        // -> Para que no siga buscando horas libres y asignando la materia a esas horas libres
+    public boolean addModule(Module module) {
+        Subject subject = module.getSubject();
+        boolean aux = false;
+        if (checkSubjectAmount(subject)) {
+            for (int i = 0; i < days.size(); i++) {
+                List<Module> moduls = days.get(i).getModules();
+                for (int j = 0; j < moduls.size(); j++) {
+                    if ((moduls.get(j) == null)&&(subject.checkSubject(this, days.get(i), j))) {
+                        Classroom availableClassroom = new Classroom();
+                        availableClassroom = availableClassroom.checkClassrooms(this, days.get(i), j);
+                        module.setClassroom(availableClassroom);
+                        module.setShift(this);
+                        days.get(i).getModules().set(j, module);
+                        aux = true;
+                        LOG.info("Subject: " + subject.getName() + " added successfully.");
+                        break;
                     }
                 }
-                if (aux) {                                                         // pregunto por mi auxiliar (si == true significa que la materia fue asignada en alguna hora)
-                    break;                                                          // si se cumple, rompo el ciclo para no seguir buscando dias dentro del shift.
+                if (aux) {
+                    break;
                 }
             }
         }
+        return aux;
     }
 
     /**
@@ -106,7 +115,7 @@ public class Shifts {
      * que no haya mas de 3 materias por dia.
      */
 
-    private boolean checkSubject(Subject subject) {
+    private boolean checkSubjectAmount(Subject subject) {
         AtomicInteger subjectCount = new AtomicInteger();           //contador de la cantidad de veces que encontramos la materia
         days.forEach(day -> {                                       // recorro los dias del shift
             List<Subject> subj = day.getSubjects();                    // agarro un arreglo de las materias de cada dia
@@ -116,12 +125,47 @@ public class Shifts {
                 }
             }
         });
-        if (subjectCount.get() < 3) {                                // si el contador < 3 la materia aparece 2 veces o menos, devuelvo true sino false.
+        if (subjectCount.get() < 2) {                                // si el contador < 3 la materia aparece 2 veces o menos, devuelvo true sino false.
             return true;
         } else {
-            LOG.error("ERROR: the subject has 2 or more lessons a week.");
+            LOG.info("Subject: " + subject.getName() + " has already two lessons this week.");
             return false;
         }
+    }
+
+    public void createFromScratch () {
+        SubjectService subjServ = new SubjectServiceImpl();
+        List<Subject> subjList = subjServ.getAllSubjects();
+        Random rand = new Random();
+        int randomIndex;
+        boolean quitCondition = true;
+        while (subjList.size() > 0) {
+            randomIndex = rand.nextInt(subjList.size());
+            Subject subject = subjList.get(randomIndex);
+            Module module = new Module();
+            module.setSubject(subject);
+            if (checkSubjectAmount(subject)) {
+                addModule(module);
+            }else {
+                subjList.remove(randomIndex);
+            }
+        }
+        LOG.info("Schedule created successfully.");
+    }
+
+    public void generateDays() {
+        Days monday = new Days("Monday", this);
+        Days tuesday = new Days("Tuesday", this);
+        Days wednesday = new Days("Wednesday", this);
+        Days thursday = new Days("Thursday", this);
+        Days friday = new Days("Friday", this);
+        List<Days> daysList = new ArrayList<>();
+        daysList.add(monday);
+        daysList.add(tuesday);
+        daysList.add(wednesday);
+        daysList.add(thursday);
+        daysList.add(friday);
+        this.setDays(daysList);
     }
 }
 
