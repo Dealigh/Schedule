@@ -1,9 +1,14 @@
 package com.solvd.Schedule;
 
+import com.solvd.Schedule.binary.Shifts;
+import com.solvd.Schedule.services.ShiftService;
+import com.solvd.Schedule.services.jdbcImplem.ShiftServiceImpl;
 import com.solvd.Schedule.util.exceptions.InvalidSelection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static com.solvd.Schedule.util.json.JsonListener.getProfessorsList;
@@ -15,8 +20,15 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        ShiftService shiftServ = new ShiftServiceImpl();
+        Shifts exampleShift = new Shifts();
+        exampleShift = shiftServ.getShift(1);
+        LOG.info(exampleShift);
 
+
+
+
+        Scanner sc = new Scanner(System.in);
         menuOptions();
         switch (sc.nextInt()) {
             case 1:

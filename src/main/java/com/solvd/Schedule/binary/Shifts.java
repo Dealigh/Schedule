@@ -81,20 +81,23 @@ public class Shifts {
      */
 
     public void addSubject(Module module) {
-        if (checkSubject(module.getSubject())) {                                                // Chequeo si la materia no esta muchas veces en el shift (mirar metodo abajo)
+        Subject subject = module.getSubject();
+        if (checkSubjectAmount(subject)) {
             boolean aux = false;
-            for (int i = 0; i < days.size(); i++) {                                // recorro todos los dias del shift
-                List<Module> moduls = days.get(i).getModules();                        // Array auxiliar de materias.
-                for (int j = 0; j < moduls.size(); j++) {                              // Recorro todas las horas del dia
-                    if (moduls.get(j) == null) {                                           // Busco una hora que este vacia
-                        moduls.set(j, module);                                           // Guardo la materia que quiero agregar en la hora vacia.
-                        aux = true;                                                   // Auxiliar para romper el primer ciclo (El manejado por la i)
-                        break;                                                        // Break para romper este ciclo (el segundo manejado x la J) ->
-                        // -> Para que no siga buscando horas libres y asignando la materia a esas horas libres
+            for (int i = 0; i < days.size(); i++) {
+                List<Module> moduls = days.get(i).getModules();
+                for (int j = 0; j < moduls.size(); j++) {
+                    if ((moduls.get(j) == null)&&(subject.checkSubject(this, days.get(i), j))) {
+                        Classroom availableClassroom = new Classroom();
+                        availableClassroom = availableClassroom.checkClassrooms(this, days.get(i), j);
+                        module.setClassroom(availableClassroom);
+                        moduls.set(j, module);
+                        aux = true;
+                        break;
                     }
                 }
-                if (aux) {                                                         // pregunto por mi auxiliar (si == true significa que la materia fue asignada en alguna hora)
-                    break;                                                          // si se cumple, rompo el ciclo para no seguir buscando dias dentro del shift.
+                if (aux) {
+                    break;
                 }
             }
         }
@@ -107,7 +110,7 @@ public class Shifts {
      * que no haya mas de 3 materias por dia.
      */
 
-    private boolean checkSubject(Subject subject) {
+    private boolean checkSubjectAmount(Subject subject) {
         AtomicInteger subjectCount = new AtomicInteger();           //contador de la cantidad de veces que encontramos la materia
         days.forEach(day -> {                                       // recorro los dias del shift
             List<Subject> subj = day.getSubjects();                    // agarro un arreglo de las materias de cada dia
