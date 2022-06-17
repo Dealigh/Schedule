@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Shifts {
+
     private final static Logger LOG = LogManager.getLogger(Shifts.class);
     private long id;
     private String name;
