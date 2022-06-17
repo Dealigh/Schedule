@@ -7,12 +7,12 @@ public class Group {
     private int limitAmount;
     private int shiftId;
 
-    public Group( int shiftId, int limitAmount) {
-        this.limitAmount=limitAmount;
+    public Group(int shiftId, int limitAmount) {
+        this.limitAmount = limitAmount;
         this.shiftId = shiftId;
     }
 
-    public Group(){
+    public Group() {
     }
 
     public long getId() {

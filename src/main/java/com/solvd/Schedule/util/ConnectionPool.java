@@ -67,5 +67,4 @@ public class ConnectionPool {
     public void returnConnection(Connection connection) {
         connectionList.add(connection);
     }
-
 }

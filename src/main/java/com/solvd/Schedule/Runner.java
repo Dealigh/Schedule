@@ -4,8 +4,6 @@ import com.solvd.Schedule.util.Menu;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-
 public class Runner {
 
     private static final Logger LOG = LogManager.getLogger(Runner.class);
@@ -35,7 +33,6 @@ public class Runner {
                 LOG.info("option 4");
 
                 break;
-
         }
     }
 }

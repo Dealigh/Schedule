@@ -15,7 +15,7 @@ public class StudentSubject {
         this.grade = grade;
     }
 
-    public StudentSubject(){
+    public StudentSubject() {
 
     }
 

@@ -1,8 +1,5 @@
 package com.solvd.Schedule;
 
-import com.solvd.Schedule.binary.Student;
-import com.solvd.Schedule.binary.Subject;
-import com.solvd.Schedule.dao.impl.*;
 import com.solvd.Schedule.services.*;
 import com.solvd.Schedule.services.jdbcImplem.*;
 import org.apache.logging.log4j.LogManager;
@@ -109,8 +106,6 @@ public class Test {
 //        for (Professor u : thisList) {
 //            LOG.info(u.toString());
 //        }
-
-
-        }
     }
+}
 

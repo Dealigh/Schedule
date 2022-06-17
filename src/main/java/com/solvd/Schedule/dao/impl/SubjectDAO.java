@@ -16,7 +16,6 @@ import java.util.List;
 
 public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
 
-
     private final String INSERT = "INSERT INTO subjects (name, professorsId) VALUES (?,?)";
     private final String UPDATE = "UPDATE subjects SET name =?, professorsId= ? WHERE idSubjects=?";
     private final String DELETE = "DELETE from subjects WHERE idSubjects=?";
@@ -24,7 +23,6 @@ public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
     private final String GET_ALL = "SELECT idSubjects, name, professorsId FROM subjects";
 
     private static final Logger LOG = LogManager.getLogger(SubjectDAO.class);
-
 
     @Override
     public void saveEntity(Subject entity) throws ExceptionDAO {
@@ -52,7 +50,7 @@ public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
             pt.setString(1, entity.getName());
             pt.setLong(2, entity.getProfessor().getId());
             pt.setLong(3, id);
-            if (pt.executeUpdate()==0){
+            if (pt.executeUpdate() == 0) {
                 throw new ExceptionDAO("The subject did not update");
             }
         } catch (SQLException e) {
@@ -67,18 +65,18 @@ public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
 
     @Override
     public void delete(long id) throws ExceptionDAO {
-        PreparedStatement ps= null;
-        Connection conn= getConnect();
+        PreparedStatement ps = null;
+        Connection conn = getConnect();
         try {
             ps = conn.prepareStatement(DELETE);
             ps.setLong(1, id);
-            if(ps.executeUpdate()==0){
+            if (ps.executeUpdate() == 0) {
                 throw new ExceptionDAO("check the method");
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOG.error("Not delete", e);
             throw new ExceptionDAO("Error in SQL");
-        }finally {
+        } finally {
             returnConnect(conn);
             closeResources(ps);
         }
@@ -141,8 +139,4 @@ public class SubjectDAO extends AbstractConnection implements ISubjectDAO {
         }
         return listSub;
     }
-
-
 }
-
-

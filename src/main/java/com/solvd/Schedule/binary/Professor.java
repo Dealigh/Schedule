@@ -12,7 +12,7 @@ public class Professor {
         this.lastName = lastName;
     }
 
-    public Professor(){
+    public Professor() {
     }
 
     public long getId() {

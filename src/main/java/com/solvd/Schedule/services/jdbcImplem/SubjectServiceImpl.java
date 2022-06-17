@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.SubjectService;
 import java.util.List;
 
 public class SubjectServiceImpl implements SubjectService {
+
     @Override
     public Subject getSubject(long id) {
         ISubjectDAO newSub = new SubjectDAO();
@@ -37,6 +38,5 @@ public class SubjectServiceImpl implements SubjectService {
     public List<Subject> getAllSubjects() {
         ISubjectDAO newSub = new SubjectDAO();
         return newSub.getAll();
-
     }
 }

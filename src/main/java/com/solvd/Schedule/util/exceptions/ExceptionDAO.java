@@ -1,7 +1,7 @@
 package com.solvd.Schedule.util.exceptions;
 
-
 public class ExceptionDAO extends RuntimeException {
+
     public ExceptionDAO() {
     }
 

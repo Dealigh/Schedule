@@ -8,13 +8,12 @@ import com.solvd.Schedule.services.ModuleService;
 import java.util.List;
 
 public class ModuleServiceImpl implements ModuleService {
+
     @Override
     public Module getModule(long id) {
         IModuleDAO modules = new ModuleDAO();
         return modules.getEntity(id);
     }
-
-
 
     @Override
     public List<Module> getAllModules() {

@@ -8,6 +8,7 @@ import com.solvd.Schedule.services.GroupService;
 import java.util.List;
 
 public class GroupServiceImpl implements GroupService {
+
     @Override
     public Group getGroup(long id) {
         IGroupDAO group = new GroupDAO();

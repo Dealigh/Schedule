@@ -8,6 +8,5 @@ public interface GroupService {
 
     Group getGroup (long id);
 
-       List<Group> getAllGroups();
-
+    List<Group> getAllGroups();
 }
