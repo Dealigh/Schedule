@@ -1,10 +1,15 @@
 package com.solvd.Schedule.binary;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Professor {
+    @JsonProperty("idProfessors")
     private long id;
+    @JsonProperty("First Name")
     private String firstName;
+    @JsonProperty("Last Name")
     private String lastName;
 
     public Professor(String firstName, String lastName) {

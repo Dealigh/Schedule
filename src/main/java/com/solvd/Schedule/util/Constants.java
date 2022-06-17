@@ -10,5 +10,7 @@ public interface Constants {
 
     String PASSWORD = "db.pass";
 
-    String JSON = " asd";
+
+    String JSON = "src/main/resources/Professors.json";
+
 }
