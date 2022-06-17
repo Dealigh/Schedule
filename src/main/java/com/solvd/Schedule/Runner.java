@@ -25,7 +25,7 @@ public class Runner {
                 LOG.info("Option 2");
                 break;
             case 3:
-                LOG.info("This are all the Professors in our School");
+                LOG.info("Here are all the Professors in our School");
                 getProfessorsList();
                 break;
             case 4:

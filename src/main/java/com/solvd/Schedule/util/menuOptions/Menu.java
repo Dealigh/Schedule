@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Menu {
 
     private static final Logger LOG = LogManager.getLogger(Menu.class);
-    private final Scanner scanner = new Scanner(System.in);
 
     public static void menuOptions() {
 
